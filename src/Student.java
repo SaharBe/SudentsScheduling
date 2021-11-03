@@ -7,5 +7,5 @@ public class Student {
     Student[] beWith;
     Student[] notBeWith;
     int classroom;
-
+    int t;
 }
