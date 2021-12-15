@@ -1,6 +1,9 @@
+import Controller.TheController;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        TheController controller = new TheController();
+        controller.StartProgram();
     }
 }
