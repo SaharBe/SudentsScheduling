@@ -11,6 +11,7 @@ public class Student {
     private Student[] beWith;
     private Student[] notBeWith;
     private int classroom;
+    private int numOFfriendsWith = 0;
 
 
     Student(int id, String gender, boolean englishLeadership,Level behavior
@@ -64,5 +65,13 @@ public class Student {
 
     public void setClassroom(int classroom) {
         this.classroom = classroom;
+    }
+
+    public int getFriendsWith() {
+        return numOFfriendsWith;
+    }
+
+    public void setFriendsWith(int friendsWith) {
+        this.numOFfriendsWith = friendsWith;
     }
 }
