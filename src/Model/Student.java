@@ -11,7 +11,7 @@ public class Student {
     private Student[] beWith;
     private Student[] notBeWith;
     private int classroom;
-    private int numOFfriendsWith = 0;
+    private int numOfFriendsWith = 0;
 
 
     Student(int id, String gender, boolean englishLeadership,Level behavior
@@ -68,10 +68,10 @@ public class Student {
     }
 
     public int getFriendsWith() {
-        return numOFfriendsWith;
+        return numOfFriendsWith;
     }
 
     public void setFriendsWith(int friendsWith) {
-        this.numOFfriendsWith = friendsWith;
+        this.numOfFriendsWith = friendsWith;
     }
 }
