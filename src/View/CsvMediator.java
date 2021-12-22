@@ -55,4 +55,7 @@ public class CsvMediator implements DataMediator {
         }
         return address;
     }
+    public String[] GetHeaders(){
+        return headers;
+    }
 }
