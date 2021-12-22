@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 public class CsvMediator implements DataMediator {
@@ -41,17 +39,19 @@ public class CsvMediator implements DataMediator {
         sb.append('\n');
         return  sb.toString();
     }
-    public void ReturnOutput(List<List<String>> classes) throws IOException {
+    // may wanna return the path to the file
+    public String ReturnOutput(List<List<String>> classes) throws IOException {
         String address = "";
         File file = new File(address);
         // create FileWriter object with file as parameter
         try (PrintWriter writer = new PrintWriter(address + ".csv")){
             for (List<String> list:classes) {
-                try { writer.write(convertToCSV(list.toArray(new String[0]))); }
-                catch (Exception e){
-                    //handle null and IOException
-                }
+                String line = convertToCSV(list.toArray(new String[0]));
+                if (line == null)
+                        return null;        //or check the prob
+                writer.write(line);
             }
         }
+        return address;
     }
 }
