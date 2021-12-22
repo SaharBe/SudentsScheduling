@@ -5,6 +5,7 @@ public class Student {
     private int id;
     private String gender;
     private boolean englishLeadership;
+    private boolean englishWeakness;
     private Level behavior;
     private Level grades;
     private Student[] friends;
@@ -14,11 +15,12 @@ public class Student {
     private int numOfFriendsWith = 0;
 
 
-    Student(int id, String gender, boolean englishLeadership,Level behavior
+    Student(int id, String gender, boolean englishLeadership,boolean englishWeakness,Level behavior
     ,Level grades, Student[] friends, Student[] beWith,Student[] notBeWith){
         this.id = id;
         this.gender = gender;
         this.englishLeadership = englishLeadership;
+        this.englishWeakness = englishWeakness;
         this.behavior = behavior;
         this.grades = grades;
         this.friends = friends;
@@ -73,5 +75,9 @@ public class Student {
 
     public void setFriendsWith(int friendsWith) {
         this.numOfFriendsWith = friendsWith;
+    }
+
+    public boolean isEnglishWeakness() {
+        return englishWeakness;
     }
 }
