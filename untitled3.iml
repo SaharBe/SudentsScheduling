@@ -1,129 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
+  <component name="CheckStyle-IDEA-Module">
+    <option name="configuration">
+      <map />
+    </option>
+  </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
-    <content url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972">
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/AllDifferentExcept0/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/AllInterval/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/AssignmentMinFlow/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.graph.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/AssignmentMip/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.linearsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/AssignmentSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/AssumptionsSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/BalanceMinFlow/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.graph.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/BasicExample/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.linearsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/BinPackingMip/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.linearsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/BinPackingProblemSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/BoolOrSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/CapacitatedVehicleRoutingProblemWithTimeWindows/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.java" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/ChannelingSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/Circuit/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/CoinsGrid/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/CoinsGridMIP/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/ColoringMIP/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/CoveringOpl/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/CpIsFunCp/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/CpIsFunSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/CpSatExample/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/Crossword/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/DeBruijn/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/Diet/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/DietMIP/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/DivisibleBy9Through1/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/EarlinessTardinessCostSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/FlowExample/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.java" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/GolombRuler/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/IntegerProgramming/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.java" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/IntervalSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/Issue173/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/Knapsack/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.algorithms.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/KnapsackMIP/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/LeastDiff/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/LinearAssignmentAPI/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.java" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/LinearProgramming/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.java" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/LinearProgrammingExample/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.linearsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/LiteralSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/MagicSquare/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/Map/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/Map2/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/Minesweeper/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/MinimalJobshopSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/MipVarArray/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.linearsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/MultiThreadTest/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/MultipleKnapsackMip/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.linearsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/MultipleKnapsackSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/NQueens/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/NQueens2/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/NQueensCp/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/NQueensSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/NoOverlapSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/NursesSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/OptionalIntervalSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/Partition/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/QuasigroupCompletion/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/RabbitsAndPheasantsSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/RabbitsPheasants/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.java" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/RandomTsp/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.java" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/RankingSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/ReifiedSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/ScheduleRequestsSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SearchForAllSolutionsSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SendMoreMoney/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SendMoreMoney2/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SendMostMoney/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/Seseman/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SetCovering/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SetCovering2/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SetCovering3/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SetCovering4/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SetCoveringDeployment/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SimpleCpProgram/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SimpleLpProgram/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.linearsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SimpleMaxFlowProgram/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.graph.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SimpleMinCostFlowProgram/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.graph.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SimpleMipProgram/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.linearsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SimpleRoutingProgram/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SimpleRoutingTest/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SimpleSatProgram/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SolutionHintingSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SolveAndPrintIntermediateSolutionsSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SolveWithTimeLimitSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/StableMarriage/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/StepFunctionSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/StiglerDiet/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.linearsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/StiglerMIP/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/StopAfterNSolutionsSampleSat/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.sat.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/Strimko2/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/Sudoku/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/SurvoPuzzle/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/ToNum/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/Tsp/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/TspCircuitBoard/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/TspCities/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/TspDistanceMatrix/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/Vrp/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/VrpBreaks/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/VrpCapacity/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/VrpDropNodes/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/VrpGlobalSpan/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/VrpInitialRoutes/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/VrpPickupDelivery/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/VrpPickupDeliveryFifo/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/VrpPickupDeliveryLifo/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/VrpResources/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/VrpStartsEnds/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/VrpTimeWindows/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/VrpWithTimeLimit/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.constraintsolver.samples" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/WhoKilledAgatha/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/Xkcd/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/examples/java/YoungTableaux/src/main/java/com/google/ortools" isTestSource="false" packagePrefix="com.google.ortools.contrib" />
-      <sourceFolder url="file://$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/ortools-java-9.2.9972-sources" isTestSource="false" />
-    </content>
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" scope="PROVIDED" name="or-tools_Ubuntu-18.04-64bit_v9.2" level="project" />
-    <orderEntry type="library" name="Maven: net.java.dev.jna:jna:5.8.0" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/or-tools/cmake/samples/java/src/main/java" />
+          <root url="file://$MODULE_DIR$/or-tools/cmake/samples/java/src/test/java" />
+          <root url="file://$MODULE_DIR$/or-tools/ortools/java" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
