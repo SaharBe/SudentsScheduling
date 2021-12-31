@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.panavis.open-source:google-ortools-java:7.8.7961">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/panavis/open-source/google-ortools-java/7.8.7961/google-ortools-java-7.8.7961.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/panavis/open-source/google-ortools-java/7.8.7961/google-ortools-java-7.8.7961-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/panavis/open-source/google-ortools-java/7.8.7961/google-ortools-java-7.8.7961-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

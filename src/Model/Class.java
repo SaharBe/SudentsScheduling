@@ -1,29 +1,30 @@
 package Model;
+import java.util.*;
 
 public class Class {
 
-    private int id;
-    private Student[] students;
-    private int minStudentsNum;
-    private int maxStudentsNum;
-    private boolean isForEnglishLeadershipStudents; //ask if get its from the user
-    private boolean isForEnglishWeaknessStudents; //ask if get its from the user
+    private final int id;
+    private final int minStudentsNum;
+    private final int maxStudentsNum;
+    private List<Student> students  = new LinkedList<>();
+    private boolean isForEnglishLeadershipStudents;
+    private boolean isForEnglishWeaknessStudents;
 
-    Class(int id, Student[] students,int minStudentsNum, int maxStudentsNum){
+    public Class(int id, int minStudentsNum, int maxStudentsNum){
         this.id = id;
-        this.students = students;
         this.maxStudentsNum = maxStudentsNum;
+        this.minStudentsNum = minStudentsNum;
     }
 
     public int getId() {
         return id;
     }
 
-    public Student[] getStudents() {
+    public List<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(Student[] students) {
+    public void setStudents(List<Student> students) {
         this.students = students;
     }
 
@@ -31,17 +32,18 @@ public class Class {
         return minStudentsNum;
     }
 
-    public void setMinStudentsNum(int minStudentsNum) {
-        this.minStudentsNum = minStudentsNum;
-    }
-
     public int getMaxStudentsNum() {
         return maxStudentsNum;
     }
 
-    public void setMaxStudentsNum(int maxStudentsNum) {
-        this.maxStudentsNum = maxStudentsNum;
+    public void addStudent(Student student){
+        students.add(student);
     }
+
+    public void  deleteStudent(Student student){
+        students.remove(student);
+    }
+
 
     public boolean isForEnglishLeadershipStudents() {
         return isForEnglishLeadershipStudents;
@@ -52,6 +54,7 @@ public class Class {
     }
 
     public boolean isForEnglishWeaknessStudents() {
+
         return isForEnglishWeaknessStudents;
     }
 
