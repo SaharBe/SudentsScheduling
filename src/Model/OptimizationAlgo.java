@@ -138,9 +138,12 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
         while (it.hasNext()) {
             Map.Entry me = (Map.Entry) it.next();
             System.out.println(" Grade Key is: " + me.getKey() + " & " + " av value for evert class: " + me.getValue());
-
-
+            int x =(Integer)me.getValue()/numOfClasses;
+            System.out.println(x);
         }
+
+
+
     }
 
 
