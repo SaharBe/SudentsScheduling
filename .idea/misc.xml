@@ -3,15 +3,15 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/pom-local.xml" />
-        <option value="$USER_HOME$/Desktop/or-tools_Ubuntu-18.04-64bit_v9.2.9972/pom-runtime.xml" />
+        <option value="$PROJECT_DIR$/../or-tools_Ubuntu-18.04-64bit_v9.2.9972/pom-local.xml" />
+        <option value="$PROJECT_DIR$/../or-tools_Ubuntu-18.04-64bit_v9.2.9972/pom-runtime.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectKey">
     <option name="state" value="project://63537948-39a4-48a0-9c97-34259a0fa913" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
