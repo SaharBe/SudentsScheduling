@@ -37,6 +37,7 @@ public class Class {
     }
 
     public void addStudent(Student student){
+        student.setClassroom(this.id);
         students.add(student);
     }
 

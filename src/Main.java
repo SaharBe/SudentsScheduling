@@ -83,7 +83,9 @@ public class Main {
         System.out.println(opt.getNumOfBehaviors());
 
         System.out.println("gg"+classes.size());
-        opt.averageClassData();
+        HashMap<String, Integer> la = opt.averageClassData();
+        System.out.println(la);
+        opt.firstEntry();
 
 
 
