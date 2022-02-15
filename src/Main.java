@@ -47,9 +47,9 @@ public class Main {
         Student k = new Student(12, "k","f", false,true,Level.HIGH, Level.MEDIUM, null, null, null);
 
 
-        Class one = new Class(1,3,5);
-        Class two = new Class(2,3,5);
-        Class three =  new Class(3,3,5);
+        Class one = new Class(1,3,5, true, false);
+        Class two = new Class(2,3,5, false, true);
+        Class three =  new Class(3,3,5, false, false);
 
         List<Student> students = new ArrayList<>();
         students.add(alis);

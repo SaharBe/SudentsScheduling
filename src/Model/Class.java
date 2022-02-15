@@ -10,10 +10,12 @@ public class Class {
     private boolean isForEnglishLeadershipStudents;
     private boolean isForEnglishWeaknessStudents;
 
-    public Class(int id, int minStudentsNum, int maxStudentsNum){
+    public Class(int id, int minStudentsNum, int maxStudentsNum, boolean isForEnglishLeadershipStudents, boolean isForEnglishWeaknessStudents){
         this.id = id;
         this.maxStudentsNum = maxStudentsNum;
         this.minStudentsNum = minStudentsNum;
+        this.isForEnglishLeadershipStudents = isForEnglishLeadershipStudents;
+        this.isForEnglishWeaknessStudents = isForEnglishWeaknessStudents;
     }
 
     public int getId() {
