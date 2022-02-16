@@ -1,4 +1,5 @@
 package Model;
+import java.nio.channels.ClosedSelectorException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.*;
@@ -6,12 +7,19 @@ import java.util.*;
 public class OptimizationAlgo implements OptimizationAlgorithm {
 
     private final List<Student> students;
-    private List<Class> classes;
+    private final List<Class> classes;
+    private int studentsWithoutClassCounter;
 
 
     public OptimizationAlgo(List<Student> students, List<Class> classes){
         this.students = students;
         this.classes = classes;
+        this.studentsWithoutClassCounter = students.size();
+
+    }
+
+    public void reduceStudentsWithoutClassCounter(){
+        studentsWithoutClassCounter--;
     }
 
     public int getNumOfStudents(){
@@ -104,6 +112,7 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
         return sums;
     }
 
+
     public int averageCalc(int studentsNum, int classNum){
         return studentsNum/classNum;
     }
@@ -146,14 +155,73 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
 
     }
 
-    public void isPassedTheAverage(int average, int num){
+
+    public void firstEntry(){
+
+        List<Class> leadershipClasses = new ArrayList<>();
+        List<Class> weaknessClasses = new ArrayList<>();
+
+        List<Student> leadershipStudents = new ArrayList<>();
+        List<Student> weaknessStudents = new ArrayList<>();
+
+        int numOfLeaderStudents;
+        int numOfWeakStudents;
+
+
+
+        for(Class c: classes){
+            if(c.isForEnglishLeadershipStudents()){
+                leadershipClasses.add(c);
+            }
+            if(c.isForEnglishWeaknessStudents()){
+                weaknessClasses.add(c);
+            }
+        }
+
+        for (Student s: students){
+            if(s.isEnglishLeadership()){
+                leadershipStudents.add(s);
+            }
+            if(s.isEnglishWeakness()){
+                weaknessStudents.add(s);
+            }
+        }
+        numOfLeaderStudents =leadershipStudents.size();
+        numOfWeakStudents = weaknessStudents.size();
+
+        int leadersInClass = numOfLeaderStudents/ leadershipClasses.size();
+        int weakInClass = numOfWeakStudents/ weaknessClasses.size();
+
+        int j =0;
+        for(Class c: leadershipClasses){
+            //enter num of leader students
+            for(int i=0; i<leadersInClass;i++){
+
+                c.addStudent(leadershipStudents.get(j));
+                j++;
+            }
+
+            System.out.println(c.getStudents());
+        }
+
+        j=0;
+        for(Class c: weaknessClasses){
+            //enter num of leader students
+            for(int i=0; i<weakInClass;i++){
+
+                c.addStudent(weaknessStudents.get(j));
+                j++;
+            }
+
+            System.out.println(c.getStudents());
+        }
 
     }
 
-    public void firstEntry(){
+    public void secondEntry(){
         HashMap<String, Integer> data =  averageClassData();
         System.out.println("data: "+data);
-        int studentsWithoutClassCounter = students.size();
+        //int studentsWithoutClassCounter = students.size();
 
         /*
          * while  there studentCounter >0  and still not pass the min amount:
@@ -162,64 +230,60 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
          *enter him to this class
          *
          * */
+
+        //firstEntry();
         for ( Class c : classes)
         {
-            int aGradesCounter = 0;
-            int bGradesCounter = 0;
-            int cGradesCounter = 0;
-
-            int aBehaviorCounter = 0;
-            int bBehaviorCounter = 0;
-            int cBehaviorCounter = 0;
-
-            int boysCounter = 0;
-            int girlsCounter = 0;
 
             while (studentsWithoutClassCounter >0 && c.getStudents().size() < c.getMinStudentsNum()){
 
                 for(Student s : students){
 
                     if(s.getClassroom() == 0){ //if this student has no class yet
-                        //System.out.println(s.getBehavior());
 
-//                        if(data.get("Behavior-MEDIUM"))
-                        //System.out.println(data.get("Behavior-MEDIUM"));
-//                        if(Objects.equals(s.getGender(), "m") ){
-//                            data.get("Boys");
-//                        }
-                        if((((Objects.equals(s.getGender(), "m") && boysCounter < data.get("Boys")) ||
-                           (Objects.equals(s.getGender(), "f") && girlsCounter < data.get("Girls"))) &&
-                           (( Objects.equals(s.getBehavior(), Level.HIGH) && aBehaviorCounter < data.get("Behavior-HIGH")) ||
-                           (Objects.equals(s.getBehavior(), Level.MEDIUM) && bBehaviorCounter < data.get("Behavior-MEDIUM"))||
-                           (Objects.equals(s.getBehavior(), Level.LOW) && cBehaviorCounter < data.get("Behavior-LOW"))))&&
-                           ((Objects.equals(s.getGrades(), Level.HIGH) && aGradesCounter < data.get("Grade-HIGH")) ||
-                           (Objects.equals(s.getGrades(), Level.MEDIUM) && bGradesCounter < data.get("Grade-MEDIUM")) ||
-                           (Objects.equals(s.getGrades(), Level.LOW) && cGradesCounter < data.get("Behavior-LOW"))) ){
+                        if((((Objects.equals(s.getGender(), "m") && c.getBoysCounter() < data.get("Boys")) ||
+                           (Objects.equals(s.getGender(), "f") && c.getGirlsCounter() < data.get("Girls"))) &&
+                           (( Objects.equals(s.getBehavior(), Level.HIGH) && c.getaBehaviorCounter() < data.get("Behavior-HIGH")) ||
+                           (Objects.equals(s.getBehavior(), Level.MEDIUM) && c.getbBehaviorCounter() < data.get("Behavior-MEDIUM"))||
+                           (Objects.equals(s.getBehavior(), Level.LOW) && c.getcBehaviorCounter() < data.get("Behavior-LOW"))))&&
+                           ((Objects.equals(s.getGrades(), Level.HIGH) && c.getaGradesCounter() < data.get("Grade-HIGH")) ||
+                           (Objects.equals(s.getGrades(), Level.MEDIUM) && c.getbGradesCounter() < data.get("Grade-MEDIUM")) ||
+                           (Objects.equals(s.getGrades(), Level.LOW) && c.getcGradesCounter() < data.get("Behavior-LOW"))) ){
 
                             if(Objects.equals(s.getGender(), "m")){
-                                boysCounter++;
+                               // boysCounter++;
+                                c.BoysCounterPlusOne();
 
                             }else{
-                                girlsCounter++;
+                               // girlsCounter++;
+                                c.girlsCounterPlusOne();
                             }
                             if(Objects.equals(s.getBehavior(), Level.HIGH)){
-                                aBehaviorCounter++;
+                                //aBehaviorCounter++;
+                                c.aBehaviorCounterPlusOne();
 
                             }else if(Objects.equals(s.getBehavior(), Level.MEDIUM)){
-                                bBehaviorCounter++;
+                                //bBehaviorCounter++;
+                                c. bBehaviorCounterPlusOne();
+
                             }else{
-                                cBehaviorCounter++;
+                                //cBehaviorCounter++;
+                                c.cBehaviorCounterPlusOne();
                             }
                             if(Objects.equals(s.getGrades(), Level.HIGH)){
-                                aGradesCounter++;
+                                //aGradesCounter++;
+                                c.aGradesCounterPlusOne();
                             }else if(Objects.equals(s.getGrades(), Level.MEDIUM)){
-                                bGradesCounter++;
+                                //bGradesCounter++;
+                                c.bGradesCounterPlusOne();
                             }else{
-                                cGradesCounter++;
+                                //cGradesCounter++;
+                                c.cGradesCounterPlusOne();
                             }
 
                             c.addStudent(s);
-                            studentsWithoutClassCounter--;
+                            //studentsWithoutClassCounter--;
+                            reduceStudentsWithoutClassCounter();
                         }
 
 
@@ -237,11 +301,4 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
     }
 
 }
-
-
-
-
-
-
-
 

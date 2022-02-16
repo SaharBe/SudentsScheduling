@@ -21,12 +21,12 @@ public class Main {
 
         Student[] bobFriends = {alis};
         //bobFriends = new ArrayList<>(3);
-        Student bob = new Student(2,"bob","m", true,true,Level.HIGH, Level.MEDIUM, bobFriends,null,null );
+        Student bob = new Student(2,"bob","m", false,true,Level.HIGH, Level.MEDIUM, bobFriends,null,null );
 
         Student[] cFriends = {alis, bob};
 
 
-        Student coco = new Student(3,"coco","m",true,true,Level.HIGH, Level.LOW, cFriends, null,null);
+        Student coco = new Student(3,"coco","m",true,false,Level.HIGH, Level.LOW, cFriends, null,null);
 
         Student davis = new Student(4, "davis","m", true,false,Level.LOW, Level.LOW, cFriends, null, null);
 
@@ -38,18 +38,18 @@ public class Main {
 
         Student zoe = new Student(8, "zoe","f", false,false,Level.HIGH, Level.LOW, null, null, null);
 
-        Student f = new Student(9, "f","m", false,false,Level.HIGH, Level.HIGH, null, null, null);
+        Student f = new Student(9, "f","m", true,false,Level.HIGH, Level.HIGH, null, null, null);
 
         Student g = new Student(10, "g","m", false,false,Level.MEDIUM, Level.MEDIUM, null, null, null);
 
         Student h = new Student(11, "h","m", false,false,Level.HIGH, Level.MEDIUM, null, null, null);
 
-        Student k = new Student(12, "k","f", false,true,Level.HIGH, Level.MEDIUM, null, null, null);
+        Student k = new Student(12, "k","f", false,false,Level.HIGH, Level.MEDIUM, null, null, null);
 
 
         Class one = new Class(1,3,5, true, false);
-        Class two = new Class(2,3,5, false, true);
-        Class three =  new Class(3,3,5, false, false);
+        Class two = new Class(2,3,5, true, false);
+        Class three =  new Class(3,3,5, false, true);
 
         List<Student> students = new ArrayList<>();
         students.add(alis);
@@ -74,18 +74,16 @@ public class Main {
         classes.add(three);
 
         OptimizationAlgo opt = new OptimizationAlgo(students, classes);
-//        for (int i = 0; i < 3; i++) {
-//            System.out.println(opt.getNumOfBehavior()[i]);
-//            System.out.println(opt.getNumOfGrades()[i]);
-//        }
-//
+
         System.out.println(opt.getNumOfGrades());
         System.out.println(opt.getNumOfBehaviors());
 
         System.out.println("gg"+classes.size());
         HashMap<String, Integer> la = opt.averageClassData();
         System.out.println(la);
-        opt.firstEntry();
+
+        opt.secondEntry();
+
 
 
 
