@@ -155,6 +155,55 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
 
     }
 
+    public void updateClassStudentsData(Class c, Student s){
+
+        if(Objects.equals(s.getGender(), "m")){
+            // boysCounter++;
+            c.BoysCounterPlusOne();
+
+        }else{
+            // girlsCounter++;
+            c.girlsCounterPlusOne();
+        }
+        if(Objects.equals(s.getBehavior(), Level.HIGH)){
+            //aBehaviorCounter++;
+            c.aBehaviorCounterPlusOne();
+
+        }else if(Objects.equals(s.getBehavior(), Level.MEDIUM)){
+            //bBehaviorCounter++;
+            c. bBehaviorCounterPlusOne();
+
+        }else{
+            //cBehaviorCounter++;
+            c.cBehaviorCounterPlusOne();
+        }
+        if(Objects.equals(s.getGrades(), Level.HIGH)){
+            //aGradesCounter++;
+            c.aGradesCounterPlusOne();
+        }else if(Objects.equals(s.getGrades(), Level.MEDIUM)){
+            //bGradesCounter++;
+            c.bGradesCounterPlusOne();
+        }else{
+            //cGradesCounter++;
+            c.cGradesCounterPlusOne();
+        }
+
+        c.addStudent(s);
+
+    }
+
+    public boolean averageConditions(Student s, Class c,HashMap<String, Integer> data){
+
+        return (((Objects.equals(s.getGender(), "m") && c.getBoysCounter() < data.get("Boys")) ||
+                (Objects.equals(s.getGender(), "f") && c.getGirlsCounter() < data.get("Girls"))) &&
+                ((Objects.equals(s.getBehavior(), Level.HIGH) && c.getaBehaviorCounter() < data.get("Behavior-HIGH")) ||
+                        (Objects.equals(s.getBehavior(), Level.MEDIUM) && c.getbBehaviorCounter() < data.get("Behavior-MEDIUM")) ||
+                        (Objects.equals(s.getBehavior(), Level.LOW) && c.getcBehaviorCounter() < data.get("Behavior-LOW")))) &&
+                ((Objects.equals(s.getGrades(), Level.HIGH) && c.getaGradesCounter() < data.get("Grade-HIGH")) ||
+                        (Objects.equals(s.getGrades(), Level.MEDIUM) && c.getbGradesCounter() < data.get("Grade-MEDIUM")) ||
+                        (Objects.equals(s.getGrades(), Level.LOW) && c.getcGradesCounter() < data.get("Behavior-LOW")));
+    }
+
 
     public void firstEntry(){
 
@@ -197,7 +246,9 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
             //enter num of leader students
             for(int i=0; i<leadersInClass;i++){
 
-                c.addStudent(leadershipStudents.get(j));
+               // c.addStudent(leadershipStudents.get(j));
+                updateClassStudentsData(c,leadershipStudents.get(j));
+                reduceStudentsWithoutClassCounter();
                 j++;
             }
 
@@ -209,7 +260,9 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
             //enter num of leader students
             for(int i=0; i<weakInClass;i++){
 
-                c.addStudent(weaknessStudents.get(j));
+               // c.addStudent(weaknessStudents.get(j));
+                updateClassStudentsData(c,weaknessStudents.get(j));
+                reduceStudentsWithoutClassCounter();
                 j++;
             }
 
@@ -218,81 +271,36 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
 
     }
 
+    /*
+     * while  there studentCounter >0  and still not pass the min amount:
+     * update the counters of this class
+     *  see next children, if he stands on the criteria
+     *enter him to this class
+     *
+     * */
     public void secondEntry(){
         HashMap<String, Integer> data =  averageClassData();
         System.out.println("data: "+data);
-        //int studentsWithoutClassCounter = students.size();
 
-        /*
-         * while  there studentCounter >0  and still not pass the min amount:
-         * update the counters of this class
-         *  see next children, if he stands on the criteria
-         *enter him to this class
-         *
-         * */
-
-        //firstEntry();
         for ( Class c : classes)
         {
-
-            while (studentsWithoutClassCounter >0 && c.getStudents().size() < c.getMinStudentsNum()){
+            if ((studentsWithoutClassCounter > 0)){
 
                 for(Student s : students){
 
-                    if(s.getClassroom() == 0){ //if this student has no class yet
+                    if((s.getClassroom() == 0) && (c.getStudents().size() < c.getMaxStudentsNum())){
 
-                        if((((Objects.equals(s.getGender(), "m") && c.getBoysCounter() < data.get("Boys")) ||
-                           (Objects.equals(s.getGender(), "f") && c.getGirlsCounter() < data.get("Girls"))) &&
-                           (( Objects.equals(s.getBehavior(), Level.HIGH) && c.getaBehaviorCounter() < data.get("Behavior-HIGH")) ||
-                           (Objects.equals(s.getBehavior(), Level.MEDIUM) && c.getbBehaviorCounter() < data.get("Behavior-MEDIUM"))||
-                           (Objects.equals(s.getBehavior(), Level.LOW) && c.getcBehaviorCounter() < data.get("Behavior-LOW"))))&&
-                           ((Objects.equals(s.getGrades(), Level.HIGH) && c.getaGradesCounter() < data.get("Grade-HIGH")) ||
-                           (Objects.equals(s.getGrades(), Level.MEDIUM) && c.getbGradesCounter() < data.get("Grade-MEDIUM")) ||
-                           (Objects.equals(s.getGrades(), Level.LOW) && c.getcGradesCounter() < data.get("Behavior-LOW"))) ){
+                        if(averageConditions(s, c, data)){
 
-                            if(Objects.equals(s.getGender(), "m")){
-                               // boysCounter++;
-                                c.BoysCounterPlusOne();
-
-                            }else{
-                               // girlsCounter++;
-                                c.girlsCounterPlusOne();
-                            }
-                            if(Objects.equals(s.getBehavior(), Level.HIGH)){
-                                //aBehaviorCounter++;
-                                c.aBehaviorCounterPlusOne();
-
-                            }else if(Objects.equals(s.getBehavior(), Level.MEDIUM)){
-                                //bBehaviorCounter++;
-                                c. bBehaviorCounterPlusOne();
-
-                            }else{
-                                //cBehaviorCounter++;
-                                c.cBehaviorCounterPlusOne();
-                            }
-                            if(Objects.equals(s.getGrades(), Level.HIGH)){
-                                //aGradesCounter++;
-                                c.aGradesCounterPlusOne();
-                            }else if(Objects.equals(s.getGrades(), Level.MEDIUM)){
-                                //bGradesCounter++;
-                                c.bGradesCounterPlusOne();
-                            }else{
-                                //cGradesCounter++;
-                                c.cGradesCounterPlusOne();
-                            }
-
-                            c.addStudent(s);
-                            //studentsWithoutClassCounter--;
+                            updateClassStudentsData(c,s);
                             reduceStudentsWithoutClassCounter();
                         }
 
-
-
                     }
-
 
                 }
             }
+
             System.out.println(c.getStudents());
 
         }

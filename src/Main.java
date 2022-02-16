@@ -82,6 +82,7 @@ public class Main {
         HashMap<String, Integer> la = opt.averageClassData();
         System.out.println(la);
 
+        opt.firstEntry();
         opt.secondEntry();
 
 
