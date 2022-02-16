@@ -14,21 +14,13 @@ public class Main {
     //    System.out.println("test" );
 
 
-
-
-          ArrayList<Student> s = new ArrayList<Student>(5);
         Student alis = new Student(1,"alis","f",false,false,Level.LOW, Level.MEDIUM,null,null,null);
 
-        Student[] bobFriends = {alis};
-        //bobFriends = new ArrayList<>(3);
-        Student bob = new Student(2,"bob","m", false,true,Level.HIGH, Level.MEDIUM, bobFriends,null,null );
+        Student bob = new Student(2,"bob","m", false,true,Level.HIGH, Level.MEDIUM, null,null,null );
 
-        Student[] cFriends = {alis, bob};
+        Student coco = new Student(3,"coco","m",true,false,Level.HIGH, Level.LOW, null, null,null);
 
-
-        Student coco = new Student(3,"coco","m",true,false,Level.HIGH, Level.LOW, cFriends, null,null);
-
-        Student davis = new Student(4, "davis","m", true,false,Level.LOW, Level.LOW, cFriends, null, null);
+        Student davis = new Student(4, "davis","m", true,false,Level.LOW, Level.LOW, null, null, null);
 
         Student helena = new Student(5, "helena","f", false,false,Level.MEDIUM, Level.MEDIUM, null, null, null);
 
@@ -45,6 +37,30 @@ public class Main {
         Student h = new Student(11, "h","m", false,false,Level.HIGH, Level.MEDIUM, null, null, null);
 
         Student k = new Student(12, "k","f", false,false,Level.HIGH, Level.MEDIUM, null, null, null);
+
+        Student[] alisArr ={emma,h,bob};
+        Student[] bobArr ={coco,alis,emma};
+        Student[] cocoArr = {bob, k, h};
+        Student[] davisArr = {mia, coco, h};
+        Student[] helenaArr = {k, emma, davis};
+        Student[] emmaArr = {alis, f, null};
+        Student[] miaArr = {alis, f, null};
+        Student[] zoeArr = {f,g, null};
+        Student[] fArr = {zoe, g,null};
+        Student[] gArr = {f,zoe, null};
+        Student[] hArr = {helena, alis, bob};
+
+        alis.setFriends(alisArr);
+        bob.setFriends(bobArr);
+        coco.setFriends(cocoArr);
+        davis.setFriends(davisArr);
+        helena.setFriends(helenaArr);
+        emma.setFriends(emmaArr);
+        mia.setFriends(miaArr);
+        zoe.setFriends(zoeArr);
+        f.setFriends(fArr);
+        g.setFriends(gArr);
+        h.setFriends(hArr);
 
 
         Class one = new Class(1,3,5, true, false);
@@ -66,8 +82,6 @@ public class Main {
         students.add(k);
 
 
-
-
         List<Class> classes = new ArrayList<>();
         classes.add(one);
         classes.add(two);
@@ -84,6 +98,7 @@ public class Main {
 
         opt.firstEntry();
         opt.secondEntry();
+        System.out.println(f.getFriends()[2]);
 
 
 

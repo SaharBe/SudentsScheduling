@@ -271,6 +271,19 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
 
     }
 
+    public void enterFriends(){
+        /*if class is english class:
+        * for each student in class- check if it is possible to enter his first friend --> check if it can iterat on the new students we enter..
+        * then loop the seconds friends of everyone and the third... */
+
+        for(Class c: classes){
+            if(c.isForEnglishWeaknessStudents() || c.isForEnglishLeadershipStudents()){
+               // for(int i=0)
+            }
+        }
+
+    }
+
     /*
      * while  there studentCounter >0  and still not pass the min amount:
      * update the counters of this class

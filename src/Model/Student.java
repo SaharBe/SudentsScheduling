@@ -9,7 +9,7 @@ public class Student {
     private final boolean englishWeakness;
     private final Level behavior;
     private final Level grades;
-    private final Student[] friends; // about the lists => is it right to give them to the constructor?
+    private Student[] friends; // about the lists => is it right to give them to the constructor?
     private final Student[] beWith;
     private final Student[] notBeWith;
     private int classroom;
@@ -41,6 +41,11 @@ public class Student {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public void setFriends( Student[] friends){
+        this.friends = friends;
+
     }
 
 
