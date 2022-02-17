@@ -278,7 +278,23 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
 
         for(Class c: classes){
             if(c.isForEnglishWeaknessStudents() || c.isForEnglishLeadershipStudents()){
-               // for(int i=0)
+                for(int i=0; i<3; i++){
+                    for(Student s: c.getStudents()){
+                        System.out.println("enter friends: "+s.getFriends()[i]);
+
+                        if((s.getClassroom() == 0) && (c.getStudents().size() < c.getMaxStudentsNum())){
+
+                            if(averageConditions(s, c, averageClassData())){
+
+                                updateClassStudentsData(c,s);
+                                reduceStudentsWithoutClassCounter();
+                            }
+
+                        }
+
+
+                    }
+                }
             }
         }
 
@@ -292,8 +308,6 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
      *
      * */
     public void secondEntry(){
-        HashMap<String, Integer> data =  averageClassData();
-        System.out.println("data: "+data);
 
         for ( Class c : classes)
         {
@@ -303,7 +317,7 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
 
                     if((s.getClassroom() == 0) && (c.getStudents().size() < c.getMaxStudentsNum())){
 
-                        if(averageConditions(s, c, data)){
+                        if(averageConditions(s, c, averageClassData())){
 
                             updateClassStudentsData(c,s);
                             reduceStudentsWithoutClassCounter();

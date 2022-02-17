@@ -97,6 +97,7 @@ public class Main {
         System.out.println(la);
 
         opt.firstEntry();
+        opt.enterFriends();
         opt.secondEntry();
         System.out.println(f.getFriends()[2]);
 
