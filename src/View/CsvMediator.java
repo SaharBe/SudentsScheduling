@@ -13,8 +13,8 @@ public class CsvMediator implements DataMediator {
 
     // method 1- receive data at csv format and transform it into list of lists
     public List<List<String>> ReceiveInput(String file_address) throws IOException {
+        List<List<String>> students = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file_address))) {
-            List<List<String>> students = new ArrayList<>();
             String line;
             // learn headers
             line = br.readLine();
@@ -25,7 +25,7 @@ public class CsvMediator implements DataMediator {
                 students.add(Arrays.asList(values));
             }
         }
-        return new LinkedList<>();
+        return students;
     }
     // method 2- receive list of lists and transform it into data in the same csv
     private String convertToCSV(String[] student_data) {
@@ -34,7 +34,7 @@ public class CsvMediator implements DataMediator {
         StringBuilder sb = new StringBuilder();
         sb.append(student_data[0]);
         for (int i = 1; i < student_data.length; i++)
-            sb.append(student_data[',' + i]);
+            sb.append(COMMA_DELIMITER + student_data[i]);
 
         sb.append('\n');
         return  sb.toString();
@@ -42,7 +42,7 @@ public class CsvMediator implements DataMediator {
     // may wanna return the path to the file
     public String ReturnOutput(List<List<String>> classes) throws IOException {
         // WHERE THE FILE SHOULD BE LOCATED IN?
-        String name = "output";
+        String name = ".\\output";
         String suffix =".csv";
         int i = 0;
         while((new File(name + i + suffix).isFile())){
@@ -56,7 +56,6 @@ public class CsvMediator implements DataMediator {
                 String line = convertToCSV(list.toArray(new String[0]));
                 if (line == null)
                         return null;        //IS THERE A VALID CASE FOR RETURNING NULL?
-                System.out.println(line);
                 writer.write(line);
             }
         }

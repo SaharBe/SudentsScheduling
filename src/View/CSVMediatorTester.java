@@ -6,12 +6,15 @@ import java.util.Scanner;
 
 public class CSVMediatorTester {
     public void Test(){
-        Scanner sc= new Scanner(System.in);
+        //Scanner sc= new Scanner(System.in);
         CsvMediator exam = new CsvMediator();
-        System.out.println("---Testing CSV Mediator---\n\n");
-        System.out.println("Enter csv file address");
-        String str= sc.nextLine();
-        List<List<String>> data = null;
+        System.out.println("---Testing CSV Mediator---\n");
+        System.out.println("Open exampleStudents.csv");
+        // for receiving different paths:
+        //System.out.println("Enter csv file address");
+        //String str= sc.nextLine();
+        String str = ".\\exampleStudents.csv";
+        List<List<String>> data;
         try{
             System.out.println("Reading file...");
             data = exam.ReceiveInput(str);
