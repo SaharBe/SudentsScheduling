@@ -1,6 +1,8 @@
 package View;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -42,16 +44,17 @@ public class CsvMediator implements DataMediator {
     // may wanna return the path to the file
     public String ReturnOutput(List<List<String>> classes) throws IOException {
         // WHERE THE FILE SHOULD BE LOCATED IN?
-        String name = ".\\output";
-        String suffix =".csv";
+        String name = ".\\output(";
+        String suffix =").csv";
         int i = 0;
-        while((new File(name + i + suffix).isFile())){
+        while((Files.exists(Paths.get(name + i + suffix)))){
             i++;
         }
         String address = name + i + suffix;
         File file = new File(address);
         // create FileWriter object with file as parameter
-        try (PrintWriter writer = new PrintWriter(address + ".csv")){
+        try (PrintWriter writer = new PrintWriter(address)){
+            writer.write(convertToCSV(headers));
             for (List<String> list:classes) {
                 String line = convertToCSV(list.toArray(new String[0]));
                 if (line == null)

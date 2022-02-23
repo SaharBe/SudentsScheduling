@@ -1,3 +1,4 @@
+import Controller.TheController;
 import Model.Class;
 import Model.*;
 import View.*;
@@ -7,12 +8,14 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-       // TheController controller = new TheController();
-        //controller.StartProgram();
-       // CSVMediatorTester csvMediatorTester = new CSVMediatorTester();
-       // csvMediatorTester.Test();
-    //    System.out.println("test" );
-
+        if (true) {
+            TheController controller = new TheController();
+            controller.StartProgram();
+            CSVMediatorTester csvMediatorTester = new CSVMediatorTester();
+            csvMediatorTester.Test();
+            System.out.println("test" );
+            return;
+        }
 
         Student alis = new Student(1,"alis","f",false,false,Level.LOW, Level.MEDIUM,null,null,null);
 
