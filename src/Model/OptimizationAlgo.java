@@ -1,5 +1,4 @@
 package Model;
-import java.nio.channels.ClosedSelectorException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.*;
@@ -93,13 +92,13 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
         int LowCounter = 0;
 
         for(Student s: students){
-            if (s.getBehavior() == Level.HIGH){
+            if (s.getAttribute() == Level.HIGH){
                 HighCounter++;
             }
-            if(s.getBehavior() == Level.MEDIUM){
+            if(s.getAttribute() == Level.MEDIUM){
                 MediumCounter++;
             }
-            if(s.getBehavior() == Level.LOW){
+            if(s.getAttribute() == Level.LOW){
                 LowCounter++;
             }
         }
@@ -165,11 +164,11 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
             // girlsCounter++;
             c.girlsCounterPlusOne();
         }
-        if(Objects.equals(s.getBehavior(), Level.HIGH)){
+        if(Objects.equals(s.getAttribute(), Level.HIGH)){
             //aBehaviorCounter++;
             c.aBehaviorCounterPlusOne();
 
-        }else if(Objects.equals(s.getBehavior(), Level.MEDIUM)){
+        }else if(Objects.equals(s.getAttribute(), Level.MEDIUM)){
             //bBehaviorCounter++;
             c. bBehaviorCounterPlusOne();
 
@@ -194,11 +193,12 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
 
     public boolean averageConditions(Student s, Class c,HashMap<String, Integer> data){
 
+        /** check if attribute exist before accessing it */
         return (((Objects.equals(s.getGender(), "m") && c.getBoysCounter() < data.get("Boys")) ||
                 (Objects.equals(s.getGender(), "f") && c.getGirlsCounter() < data.get("Girls"))) &&
-                ((Objects.equals(s.getBehavior(), Level.HIGH) && c.getaBehaviorCounter() < data.get("Behavior-HIGH")) ||
-                        (Objects.equals(s.getBehavior(), Level.MEDIUM) && c.getbBehaviorCounter() < data.get("Behavior-MEDIUM")) ||
-                        (Objects.equals(s.getBehavior(), Level.LOW) && c.getcBehaviorCounter() < data.get("Behavior-LOW")))) &&
+                ((Objects.equals(s.getAttribute("Behavior"), "A") && c.getaBehaviorCounter() < data.get("Behavior-HIGH")) ||
+                        (Objects.equals(s.getAttribute(), Level.MEDIUM) && c.getbBehaviorCounter() < data.get("Behavior-MEDIUM")) ||
+                        (Objects.equals(s.getAttribute(), Level.LOW) && c.getcBehaviorCounter() < data.get("Behavior-LOW")))) &&
                 ((Objects.equals(s.getGrades(), Level.HIGH) && c.getaGradesCounter() < data.get("Grade-HIGH")) ||
                         (Objects.equals(s.getGrades(), Level.MEDIUM) && c.getbGradesCounter() < data.get("Grade-MEDIUM")) ||
                         (Objects.equals(s.getGrades(), Level.LOW) && c.getcGradesCounter() < data.get("Behavior-LOW")));

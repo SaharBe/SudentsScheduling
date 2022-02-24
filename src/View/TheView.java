@@ -7,4 +7,6 @@ public interface TheView {
     public List<List<String>> getData();
     // ask user what algorithm to use
     public int algorithmPick(List<String> algorithms);
+
+    //public void returnResult(String result);
 }

@@ -1,10 +1,16 @@
 package Model;
 
+import java.util.Map;
+
 public class Student {
 
     private final int id;
     private final String name;
     private String gender;
+    private Map<String, String> attributes;
+    //list of relevant keys
+
+    ///remove:
     private final boolean englishLeadership;
     private final boolean englishWeakness;
     private final Level behavior;
@@ -12,7 +18,9 @@ public class Student {
     private Student[] friends; // about the lists => is it right to give them to the constructor?
     private final Student[] beWith;
     private final Student[] notBeWith;
+    //.
     private int classroom;
+    // ?
     private int numOfFriendsWith = 0;
 
 
@@ -21,6 +29,8 @@ public class Student {
         this.id = id;
         this.name = name;
         this.gender = gender;
+
+        //remove:
         this.englishLeadership = englishLeadership;
         this.englishWeakness = englishWeakness;
         this.behavior = behavior;
@@ -38,6 +48,13 @@ public class Student {
     public String getGender() {
         return gender;
     }
+    public void setAttribute(String key, String value){}
+    public String getAttribute(String key){
+        return "";
+    }
+    public boolean isAttributeExist(String attribute){
+        return true;
+    }
 
     public void setGender(String gender) {
         this.gender = gender;
@@ -53,7 +70,7 @@ public class Student {
         return englishLeadership;
     }
 
-    public Level getBehavior() {
+    public Level getAttribute() {
         return behavior;
     }
 
