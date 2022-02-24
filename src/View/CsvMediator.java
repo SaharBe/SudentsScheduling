@@ -32,11 +32,11 @@ public class CsvMediator implements DataMediator {
     // method 2- receive list of lists and transform it into data in the same csv
     private String convertToCSV(String[] student_data) {
         if (student_data.length == 0)
-            return null;
+            return "";
         StringBuilder sb = new StringBuilder();
         sb.append(student_data[0]);
         for (int i = 1; i < student_data.length; i++)
-            sb.append(COMMA_DELIMITER + student_data[i]);
+            sb.append(COMMA_DELIMITER).append(student_data[i]);
 
         sb.append('\n');
         return  sb.toString();
