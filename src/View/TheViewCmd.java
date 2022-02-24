@@ -12,7 +12,7 @@ public class TheViewCmd implements TheView {
     public List<List<String>> getData(){
         dm = new CsvMediator();
         List<List<String>> data = new ArrayList<>();
-        System.out.println("---Welcome to the student schedualer---\n");
+        System.out.println("---Welcome to the student scheduler---\n");
         System.out.println("please enter the path to the students file:");
         System.out.println("Enter csv file address");
         String str= sc.nextLine();
