@@ -40,27 +40,27 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
         return (getNumOfStudents() - getNumOfBoys());
     }
 
-    public int[] getNumOfBehavior(){
-        int HighCounter = 0;
-        int MediumCounter = 0;
-        int LowCounter = 0;
-
-        for(Student s: students){
-            if (s.getBehavior() == Level.HIGH){
-                HighCounter++;
-            }
-            if(s.getBehavior() == Level.MEDIUM){
-                MediumCounter++;
-            }
-            if(s.getBehavior() == Level.LOW){
-                LowCounter++;
-            }
-        }
-        int sum[] = { HighCounter, MediumCounter,LowCounter };
-
-        return sum;
-
-    }
+//    public int[] getNumOfBehavior(){
+//        int HighCounter = 0;
+//        int MediumCounter = 0;
+//        int LowCounter = 0;
+//
+//        for(Student s: students){
+//            if (s.getBehavior() == Level.HIGH){
+//                HighCounter++;
+//            }
+//            if(s.getBehavior() == Level.MEDIUM){
+//                MediumCounter++;
+//            }
+//            if(s.getBehavior() == Level.LOW){
+//                LowCounter++;
+//            }
+//        }
+//        int sum[] = { HighCounter, MediumCounter,LowCounter };
+//
+//        return sum;
+//
+//    }
 
     public HashMap<String,Integer> getNumOfGrades(){
         int HighCounter = 0;
@@ -205,7 +205,7 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
     }
 
 
-    public void firstEntry(){
+    public void firstEntry(){ ///enter english students to relevant classes.
 
         List<Class> leadershipClasses = new ArrayList<>();
         List<Class> weaknessClasses = new ArrayList<>();
@@ -273,20 +273,25 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
 
     public void enterFriends(){
         /*if class is english class:
-        * for each student in class- check if it is possible to enter his first friend --> check if it can iterat on the new students we enter..
+        * for each student in class- check if it is possible to enter his first friend --> check if it can iterate on the new students we enter..
         * then loop the seconds friends of everyone and the third... */
 
         for(Class c: classes){
+
             if(c.isForEnglishWeaknessStudents() || c.isForEnglishLeadershipStudents()){
                 for(int i=0; i<3; i++){
+
+                    Queue<Student> queue = new LinkedList<>();
                     for(Student s: c.getStudents()){
-                        System.out.println("enter friends: "+s.getFriends()[i]);
-
-                        if((s.getClassroom() == 0) && (c.getStudents().size() < c.getMaxStudentsNum())){
-
-                            if(averageConditions(s, c, averageClassData())){
-
-                                updateClassStudentsData(c,s);
+                        queue.add(s);
+                    }
+                    while(!queue.isEmpty()){
+                        Student s = queue.remove();
+                        Student newStudent = s.getFriends()[i];
+                        if( newStudent != null && newStudent.getClassroom() == 0 &&  c.getStudents().size() <  c.getMaxStudentsNum()){
+                            if(averageConditions(newStudent, c, averageClassData())){
+                                queue.add(newStudent);
+                                updateClassStudentsData(c,s.getFriends()[i]);
                                 reduceStudentsWithoutClassCounter();
                             }
 
@@ -294,6 +299,7 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
 
 
                     }
+
                 }
             }
         }
@@ -328,11 +334,32 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
                 }
             }
 
-            System.out.println(c.getStudents());
+            System.out.println("In the Class: "+c.getStudents());
 
         }
 
 
+    }
+
+    public  List<Class> findClassesNotFull(){
+        List<Class> notFullClasses = new ArrayList<>();
+
+        for (Class c:classes) {
+            if(c.getStudents().size() <   c.getMinStudentsNum() ){
+                notFullClasses.add(c);
+            }
+
+        }
+//        System.out.println(notFullClasses);
+        return notFullClasses;
+
+    }
+
+    public void enterLeftStudents(){
+        //check who are the students without a class
+        //if all the classes get the minimum:
+            //iterate on his friends, if there is a friend in class that doesn't get the maximum - enter him there.
+        //
     }
 
 }

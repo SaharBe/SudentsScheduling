@@ -8,14 +8,14 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        if (true) {
-            TheController controller = new TheController();
-            controller.StartProgram();
-            CSVMediatorTester csvMediatorTester = new CSVMediatorTester();
-            csvMediatorTester.Test();
-            System.out.println("test" );
-            return;
-        }
+//        if (true) {
+//            TheController controller = new TheController();
+//            controller.StartProgram();
+//            CSVMediatorTester csvMediatorTester = new CSVMediatorTester();
+//            csvMediatorTester.Test();
+//            System.out.println("test" );
+//            return;
+//        }
 
         Student alis = new Student(1,"alis","f",false,false,Level.LOW, Level.MEDIUM,null,null,null);
 
@@ -52,6 +52,7 @@ public class Main {
         Student[] fArr = {zoe, g,null};
         Student[] gArr = {f,zoe, null};
         Student[] hArr = {helena, alis, bob};
+        Student[] kArr = {null, null, null};
 
         alis.setFriends(alisArr);
         bob.setFriends(bobArr);
@@ -64,6 +65,7 @@ public class Main {
         f.setFriends(fArr);
         g.setFriends(gArr);
         h.setFriends(hArr);
+        k.setFriends(kArr);
 
 
         Class one = new Class(1,3,5, true, false);
@@ -103,6 +105,11 @@ public class Main {
         opt.enterFriends();
         opt.secondEntry();
         System.out.println(f.getFriends()[2]);
+
+        List<Class> d = opt.findClassesNotFull();
+        if(d.size() == 0){
+            System.out.println("do: "+d);
+        }
 
 
 
