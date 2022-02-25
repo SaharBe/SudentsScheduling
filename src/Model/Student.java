@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Student {
@@ -11,26 +13,31 @@ public class Student {
     //list of relevant keys
 
     ///remove:
-    private final boolean englishLeadership;
-    private final boolean englishWeakness;
-    private final Level behavior;
-    private final Level grades;
-    private Student[] friends; // about the lists => is it right to give them to the constructor?
-    private final Student[] beWith;
-    private final Student[] notBeWith;
+    private final boolean englishLeadership = false;
+    private final boolean englishWeakness = false;
+    private final Level behavior = Level.MEDIUM;
+    private final Level grades = Level.MEDIUM;
+    private List<Student> friends = new ArrayList<Student>(); // about the lists => is it right to give them to the constructor?
+    private final List<Student> beWith = new ArrayList<Student>();
+    private final List<Student> notBeWith = new ArrayList<Student>();
     //.
     private int classroom;
     // ?
     private int numOfFriendsWith = 0;
 
 
+    public Student(int id,String name, String gender){
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
+    }
     public Student(int id,String name, String gender, boolean englishLeadership,boolean englishWeakness,Level behavior
     ,Level grades, Student[] friends, Student[] beWith,Student[] notBeWith){
         this.id = id;
         this.name = name;
         this.gender = gender;
 
-        //remove:
+        /** remove
         this.englishLeadership = englishLeadership;
         this.englishWeakness = englishWeakness;
         this.behavior = behavior;
@@ -38,7 +45,7 @@ public class Student {
         this.friends = friends;
         this.beWith = beWith;
         this.notBeWith = notBeWith;
-    }
+*/  }
 
 
     public int getId(){
@@ -61,7 +68,7 @@ public class Student {
     }
 
     public void setFriends( Student[] friends){
-        this.friends = friends;
+        //is.friends = friends;
 
     }
 
@@ -78,15 +85,15 @@ public class Student {
         return grades;
     }
 
-    public Student[] getFriends() {
+    public List<Student> getFriends() {
         return friends;
     }
 
-    public Student[] getBeWith() {
+    public List<Student> getBeWith() {
         return beWith;
     }
 
-    public Student[] getNotBeWith() {
+    public List<Student> getNotBeWith() {
         return notBeWith;
     }
 
