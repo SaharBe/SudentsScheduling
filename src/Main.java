@@ -18,30 +18,29 @@ public class Main {
         }
 
 
+        Student alis = new Student(8,"alis","f",false,false,Level.LOW, Level.MEDIUM);
 
-        Student alis = new Student(1,"alis","f",false,false,Level.LOW, Level.MEDIUM,null,null,null);
+        Student bob = new Student(9,"bob","m", false,true,Level.HIGH, Level.MEDIUM);
 
-        Student bob = new Student(2,"bob","m", false,true,Level.HIGH, Level.MEDIUM, null,null,null );
+        Student coco = new Student(10,"coco","m",true,false,Level.HIGH, Level.LOW);
 
-        Student coco = new Student(3,"coco","m",true,false,Level.HIGH, Level.LOW, null, null,null);
+        Student davis = new Student(11, "davis","m", true,false,Level.LOW, Level.LOW);
 
-        Student davis = new Student(4, "davis","m", true,false,Level.LOW, Level.LOW, null, null, null);
+        Student helena = new Student(12, "helena","f", false,false,Level.MEDIUM, Level.MEDIUM);
 
-        Student helena = new Student(5, "helena","f", false,false,Level.MEDIUM, Level.MEDIUM, null, null, null);
+        Student emma = new Student(13, "emma","f", false,false,Level.MEDIUM, Level.HIGH);
 
-        Student emma = new Student(6, "emma","f", false,false,Level.MEDIUM, Level.HIGH, null, null, null);
+        Student mia = new Student(14, "mia","f", true,false,Level.LOW, Level.HIGH);
 
-        Student mia = new Student(7, "mia","f", true,false,Level.LOW, Level.HIGH, null, null, null);
+        Student zoe = new Student(15, "zoe","f", false,false,Level.HIGH, Level.LOW);
 
-        Student zoe = new Student(8, "zoe","f", false,false,Level.HIGH, Level.LOW, null, null, null);
+        Student f = new Student(16, "f","m", true,false,Level.HIGH, Level.HIGH);
 
-        Student f = new Student(9, "f","m", true,false,Level.HIGH, Level.HIGH, null, null, null);
+        Student g = new Student(17, "g","m", false,false,Level.MEDIUM, Level.MEDIUM);
 
-        Student g = new Student(10, "g","m", false,false,Level.MEDIUM, Level.MEDIUM, null, null, null);
+        Student h = new Student(18, "h","m", false,false,Level.HIGH, Level.MEDIUM);
 
-        Student h = new Student(11, "h","m", false,false,Level.HIGH, Level.MEDIUM, null, null, null);
-
-        Student k = new Student(12, "k","f", false,false,Level.HIGH, Level.MEDIUM, null, null, null);
+        Student k = new Student(19, "k","f", false,false,Level.HIGH, Level.MEDIUM);
 
         Student[] alisArr ={emma,h,bob};
         Student[] bobArr ={coco,alis,emma};

@@ -13,17 +13,20 @@ public class Student {
     //list of relevant keys
 
     ///remove:
-    private final boolean englishLeadership = false;
-    private final boolean englishWeakness = false;
-    private final Level behavior = Level.MEDIUM;
-    private final Level grades = Level.MEDIUM;
-    private List<Student> friends = new ArrayList<Student>(); // about the lists => is it right to give them to the constructor?
-    private final List<Student> beWith = new ArrayList<Student>();
-    private final List<Student> notBeWith = new ArrayList<Student>();
+    private  boolean englishLeadership;
+    private  boolean englishWeakness ;
+    private  Level behavior;
+    private  Level grades;
+    private Student[] friends;
+    private final List<Student> beWith = new ArrayList<>();
+    private final List<Student> notBeWith = new ArrayList<>();
     //.
     private int classroom;
     // ?
     private int numOfFriendsWith = 0;
+
+
+
 
 
     public Student(int id,String name, String gender){
@@ -31,21 +34,22 @@ public class Student {
         this.name = name;
         this.gender = gender;
     }
+
     public Student(int id,String name, String gender, boolean englishLeadership,boolean englishWeakness,Level behavior
-    ,Level grades, Student[] friends, Student[] beWith,Student[] notBeWith){
+    ,Level grades){
         this.id = id;
         this.name = name;
         this.gender = gender;
 
-        /** remove
+       //remove:
         this.englishLeadership = englishLeadership;
         this.englishWeakness = englishWeakness;
         this.behavior = behavior;
         this.grades = grades;
-        this.friends = friends;
-        this.beWith = beWith;
-        this.notBeWith = notBeWith;
-*/  }
+//        this.friends = friends;
+//        this.beWith = beWith;
+//        this.notBeWith = notBeWith;
+  }
 
 
     public int getId(){
@@ -55,10 +59,17 @@ public class Student {
     public String getGender() {
         return gender;
     }
-    public void setAttribute(String key, String value){}
-    public String getAttribute(String key){
-        return "";
+
+    public void setAttribute(String key, String value){
+        attributes.put(key, value);
+
     }
+
+    public String getAttribute(String key){
+        return attributes.get(key);
+    }
+
+
     public boolean isAttributeExist(String attribute){
         return true;
     }
@@ -68,7 +79,7 @@ public class Student {
     }
 
     public void setFriends( Student[] friends){
-        //is.friends = friends;
+        this.friends = friends;
 
     }
 
@@ -85,7 +96,7 @@ public class Student {
         return grades;
     }
 
-    public List<Student> getFriends() {
+    public Student[] getFriends(){
         return friends;
     }
 

@@ -288,6 +288,7 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
                     while(!queue.isEmpty()){
                         Student s = queue.remove();
                         Student newStudent = s.getFriends()[i];
+
                         if( newStudent != null && newStudent.getClassroom() == 0 &&  c.getStudents().size() <  c.getMaxStudentsNum()){
                             if(averageConditions(newStudent, c, averageClassData())){
                                 queue.add(newStudent);
