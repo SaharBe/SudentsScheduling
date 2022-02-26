@@ -7,13 +7,56 @@ public class Class {
     private final int minStudentsNum;
     private final int maxStudentsNum;
     private List<Student> students  = new LinkedList<>();
-    private boolean isForEnglishLeadershipStudents;
-    private boolean isForEnglishWeaknessStudents;
+    private final boolean isForEnglishLeadershipStudents;
+    private final boolean isForEnglishWeaknessStudents;
 
-    public Class(int id, int minStudentsNum, int maxStudentsNum){
+    private int aGradesCounter = 0;
+    private int bGradesCounter = 0;
+    private int cGradesCounter = 0;
+    private int aBehaviorCounter = 0;
+    private int bBehaviorCounter = 0;
+    private int cBehaviorCounter = 0;
+    private int boysCounter = 0;
+    private int girlsCounter = 0;
+
+    public Class(int id, int minStudentsNum, int maxStudentsNum, boolean isForEnglishLeadershipStudents, boolean isForEnglishWeaknessStudents){
         this.id = id;
         this.maxStudentsNum = maxStudentsNum;
         this.minStudentsNum = minStudentsNum;
+        this.isForEnglishLeadershipStudents = isForEnglishLeadershipStudents;
+        this.isForEnglishWeaknessStudents = isForEnglishWeaknessStudents;
+    }
+
+    public void aGradesCounterPlusOne(){
+        aGradesCounter++;
+    }
+
+    public void bGradesCounterPlusOne(){
+        bGradesCounter++;
+    }
+
+    public void cGradesCounterPlusOne(){
+        cGradesCounter++;
+    }
+
+    public void aBehaviorCounterPlusOne(){
+        aBehaviorCounter++;
+    }
+
+    public void bBehaviorCounterPlusOne(){
+        bBehaviorCounter++;
+    }
+
+    public void cBehaviorCounterPlusOne(){
+        cBehaviorCounter++;
+    }
+
+    public void BoysCounterPlusOne(){
+        boysCounter++;
+    }
+
+    public void girlsCounterPlusOne(){
+        girlsCounter++;
     }
 
     public int getId() {
@@ -37,6 +80,7 @@ public class Class {
     }
 
     public void addStudent(Student student){
+        student.setClassroom(this.id);
         students.add(student);
     }
 
@@ -49,16 +93,42 @@ public class Class {
         return isForEnglishLeadershipStudents;
     }
 
-    public void setForEnglishLeadershipStudents(boolean forEnglishLeadershipStudents) {
-        isForEnglishLeadershipStudents = forEnglishLeadershipStudents;
-    }
+
 
     public boolean isForEnglishWeaknessStudents() {
 
         return isForEnglishWeaknessStudents;
     }
 
-    public void setForEnglishWeaknessStudents(boolean forEnglishWeaknessStudents) {
-        isForEnglishWeaknessStudents = forEnglishWeaknessStudents;
+    public int getaGradesCounter() {
+        return aGradesCounter;
+    }
+
+    public int getbGradesCounter() {
+        return bGradesCounter;
+    }
+
+    public int getcGradesCounter() {
+        return cGradesCounter;
+    }
+
+    public int getaBehaviorCounter() {
+        return aBehaviorCounter;
+    }
+
+    public int getbBehaviorCounter() {
+        return bBehaviorCounter;
+    }
+
+    public int getcBehaviorCounter() {
+        return cBehaviorCounter;
+    }
+
+    public int getBoysCounter() {
+        return boysCounter;
+    }
+
+    public int getGirlsCounter() {
+        return girlsCounter;
     }
 }
