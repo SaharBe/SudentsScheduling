@@ -8,7 +8,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        if (true) {
+        if(false) {
             TheController controller = new TheController();
             controller.StartProgram();
             CSVMediatorTester csvMediatorTester = new CSVMediatorTester();
@@ -108,8 +108,10 @@ public class Main {
         System.out.println(f.getFriends()[2]);
 
         List<Class> d = opt.findClassesNotFull();
-        if(d.size() == 0){
-            System.out.println("do: "+d);
+        List<Class> gg = opt.findFullClasses();
+
+        if(gg.size() == 0){
+            System.out.println("do: "+gg);
         }
 
 

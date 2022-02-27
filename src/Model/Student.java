@@ -88,7 +88,7 @@ public class Student {
         return englishLeadership;
     }
 
-    public Level getAttribute() {
+    public Level getBehavior() {
         return behavior;
     }
 
