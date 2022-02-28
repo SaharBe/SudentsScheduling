@@ -69,6 +69,9 @@ public class Main {
         k.setFriends(kArr);
 
 
+        System.out.println("this is me: "+ alis.getClassroom());
+
+
         Class one = new Class(1,3,5, true, false);
         Class two = new Class(2,3,5, true, false);
         Class three =  new Class(3,3,5, false, true);

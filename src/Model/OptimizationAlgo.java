@@ -377,6 +377,8 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
         //if all the classes get the minimum:
             //iterate on his friends, if there is a friend in class that doesn't get the maximum - enter him there.
         //
+        /*if there are classes that not get the minimum, enter the students there*/
+
     }
 
 }
