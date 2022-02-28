@@ -72,14 +72,14 @@ public class greedyAlgorithmForFriends implements OptimizationAlgorithm {
 
     public void func(){
 
-        while(/*not full (get the minimum) && all the students has no class:*/){
-
-        }
-
-        for (Class c:classes) {
-
-
-        }
+//        while(/*not full (get the minimum) && all the students has no class:*/){
+//
+//        }
+//
+//        for (Class c:classes) {
+//
+//
+//        }
 
     }
 
