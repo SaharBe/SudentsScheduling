@@ -8,7 +8,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        if (true) {
+        if(false) {
             TheController controller = new TheController();
             controller.StartProgram();
             CSVMediatorTester csvMediatorTester = new CSVMediatorTester();
@@ -69,6 +69,9 @@ public class Main {
         k.setFriends(kArr);
 
 
+        System.out.println("this is me: "+ alis.getClassroom());
+
+
         Class one = new Class(1,3,5, true, false);
         Class two = new Class(2,3,5, true, false);
         Class three =  new Class(3,3,5, false, true);
@@ -108,8 +111,10 @@ public class Main {
         System.out.println(f.getFriends()[2]);
 
         List<Class> d = opt.findClassesNotFull();
-        if(d.size() == 0){
-            System.out.println("do: "+d);
+        List<Class> gg = opt.findFullClasses();
+
+        if(gg.size() == 0){
+            System.out.println("do: "+gg);
         }
 
 

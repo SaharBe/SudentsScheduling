@@ -96,13 +96,13 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
         int LowCounter = 0;
 
         for(Student s: students){
-            if (s.getAttribute() == Level.HIGH){
+            if (s.getBehavior() == Level.HIGH){
                 HighCounter++;
             }
-            if(s.getAttribute() == Level.MEDIUM){
+            if(s.getBehavior() == Level.MEDIUM){
                 MediumCounter++;
             }
-            if(s.getAttribute() == Level.LOW){
+            if(s.getBehavior() == Level.LOW){
                 LowCounter++;
             }
         }
@@ -171,11 +171,11 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
             // girlsCounter++;
             c.girlsCounterPlusOne();
         }
-        if(Objects.equals(s.getAttribute(), Level.HIGH)){
+        if(Objects.equals(s.getBehavior(), Level.HIGH)){
             //aBehaviorCounter++;
             c.aBehaviorCounterPlusOne();
 
-        }else if(Objects.equals(s.getAttribute(), Level.MEDIUM)){
+        }else if(Objects.equals(s.getBehavior(), Level.MEDIUM)){
             //bBehaviorCounter++;
             c. bBehaviorCounterPlusOne();
 
@@ -203,9 +203,9 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
         /** check if attribute exist before accessing it */
         return (((Objects.equals(s.getGender(), "m") && c.getBoysCounter() < data.get("Boys")) ||
                 (Objects.equals(s.getGender(), "f") && c.getGirlsCounter() < data.get("Girls"))) &&
-                ((Objects.equals(s.getAttribute("Behavior"), "A") && c.getaBehaviorCounter() < data.get("Behavior-HIGH")) ||
-                        (Objects.equals(s.getAttribute(), Level.MEDIUM) && c.getbBehaviorCounter() < data.get("Behavior-MEDIUM")) ||
-                        (Objects.equals(s.getAttribute(), Level.LOW) && c.getcBehaviorCounter() < data.get("Behavior-LOW")))) &&
+                ((Objects.equals(s.getBehavior(), Level.HIGH) && c.getaBehaviorCounter() < data.get("Behavior-HIGH")) ||
+                        (Objects.equals(s.getBehavior(), Level.MEDIUM) && c.getbBehaviorCounter() < data.get("Behavior-MEDIUM")) ||
+                        (Objects.equals(s.getBehavior(), Level.LOW) && c.getcBehaviorCounter() < data.get("Behavior-LOW")))) &&
                 ((Objects.equals(s.getGrades(), Level.HIGH) && c.getaGradesCounter() < data.get("Grade-HIGH")) ||
                         (Objects.equals(s.getGrades(), Level.MEDIUM) && c.getbGradesCounter() < data.get("Grade-MEDIUM")) ||
                         (Objects.equals(s.getGrades(), Level.LOW) && c.getcGradesCounter() < data.get("Behavior-LOW")));
@@ -363,11 +363,29 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
 
     }
 
+    public List<Class> findFullClasses(){
+        List<Class> FullClasses = new ArrayList<>();
+
+        for (Class c:classes) {
+            if(c.getStudents().size() ==   c.getMaxStudentsNum() ){
+                FullClasses.add(c);
+            }
+
+        }
+        System.out.println(FullClasses);
+        return FullClasses;
+
+    }
+
     public void enterLeftStudents(){
-        //check who are the students without a class
+        /*if all the classes get the minimum and there are classes that not get the maximum:
+                loop over that classes, and for all student without class, check if the can be there
+        *   */
         //if all the classes get the minimum:
             //iterate on his friends, if there is a friend in class that doesn't get the maximum - enter him there.
         //
+        /*if there are classes that not get the minimum, enter the students there*/
+
     }
 
 }

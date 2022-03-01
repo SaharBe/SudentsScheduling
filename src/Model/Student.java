@@ -99,7 +99,7 @@ public class Student implements Person{
         return englishLeadership;
     }
 
-    public Level getAttribute() {
+    public Level getBehavior() {
         return behavior;
     }
 
