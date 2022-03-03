@@ -96,7 +96,7 @@ public class Main {
         classes.add(two);
         classes.add(three);
 
-        OptimizationAlgo opt = new OptimizationAlgo(students, classes);
+        GenericOptimizationAlgo opt = new GenericOptimizationAlgo(students, classes);
 
         System.out.println(opt.getNumOfGrades());
         System.out.println(opt.getNumOfBehaviors());
@@ -110,7 +110,7 @@ public class Main {
         opt.secondEntry();
         System.out.println(f.getFriends()[2]);
 
-        List<Class> d = opt.findClassesNotFull();
+        List<Class> d = opt.findClassesNotFullMinimum();
         List<Class> gg = opt.findFullClasses();
 
         if(gg.size() == 0){

@@ -3,14 +3,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.*;
 
-public class OptimizationAlgo implements OptimizationAlgorithm {
+public class GenericOptimizationAlgo extends OptimizationAlgorithm {
 
     private final List<Student> students;
     private final List<Class> classes;
     private int studentsWithoutClassCounter;
 
 
-    public OptimizationAlgo(List<Student> students, List<Class> classes){
+    public GenericOptimizationAlgo(List<Student> students, List<Class> classes){
+        super(students,  classes);
         this.students = students;
         this.classes = classes;
         this.studentsWithoutClassCounter = students.size();
@@ -39,27 +40,7 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
         return (getNumOfStudents() - getNumOfBoys());
     }
 
-//    public int[] getNumOfBehavior(){
-//        int HighCounter = 0;
-//        int MediumCounter = 0;
-//        int LowCounter = 0;
-//
-//        for(Student s: students){
-//            if (s.getBehavior() == Level.HIGH){
-//                HighCounter++;
-//            }
-//            if(s.getBehavior() == Level.MEDIUM){
-//                MediumCounter++;
-//            }
-//            if(s.getBehavior() == Level.LOW){
-//                LowCounter++;
-//            }
-//        }
-//        int sum[] = { HighCounter, MediumCounter,LowCounter };
-//
-//        return sum;
-//
-//    }
+
 
     public HashMap<String,Integer> getNumOfGrades(){
         int HighCounter = 0;
@@ -342,19 +323,20 @@ public class OptimizationAlgo implements OptimizationAlgorithm {
 
     }
 
-    public  List<Class> findClassesNotFull(){
-        List<Class> notFullClasses = new ArrayList<>();
 
-        for (Class c:classes) {
-            if(c.getStudents().size() <   c.getMinStudentsNum() ){
-                notFullClasses.add(c);
-            }
-
-        }
-//        System.out.println(notFullClasses);
-        return notFullClasses;
-
-    }
+//    public  List<Class> findClassesNotFullMinimum(){
+//        List<Class> notFullClasses = new ArrayList<>();
+//
+//        for (Class c:classes) {
+//            if(c.getStudents().size() <   c.getMinStudentsNum() ){
+//                notFullClasses.add(c);
+//            }
+//
+//        }
+////        System.out.println(notFullClasses);
+//        return notFullClasses;
+//
+//    }
 
     public List<Class> findFullClasses(){
         List<Class> FullClasses = new ArrayList<>();
