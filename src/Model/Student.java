@@ -1,16 +1,14 @@
 package Model;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-public class Student {
+public class Student implements Person{
 
     private final int id;
     private final String name;
-    private String gender;
-    private Map<String, String> attributes;
-    //list of relevant keys
+    private boolean gender;
+    private Map<String, String> attributes = new Hashtable<>();
+    //list of relevant keys- maybe should be in the DB as well as types of data
 
     ///remove:
     private  boolean englishLeadership;
@@ -27,15 +25,18 @@ public class Student {
 
 
 
-
-
-    public Student(int id,String name, String gender){
+    public Student(int id,String name, boolean gender){
         this.id = id;
         this.name = name;
         this.gender = gender;
     }
 
-    public Student(int id,String name, String gender, boolean englishLeadership,boolean englishWeakness,Level behavior
+    @Override
+    public Student create(int id, String name, boolean gender){
+        return new Student(id, name, gender);
+    }
+
+    public Student(int id,String name, boolean gender, boolean englishLeadership,boolean englishWeakness,Level behavior
     ,Level grades){
         this.id = id;
         this.name = name;
@@ -49,32 +50,42 @@ public class Student {
 //        this.friends = friends;
 //        this.beWith = beWith;
 //        this.notBeWith = notBeWith;
-  }
+    }
 
 
-    public int getId(){
+    @Override
+    public int getID(){
         return id;
     }
 
-    public String getGender() {
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public boolean getGender() {
         return gender;
     }
 
+    @Override
     public void setAttribute(String key, String value){
         attributes.put(key, value);
 
     }
 
+    @Override
     public String getAttribute(String key){
         return attributes.get(key);
     }
 
 
+    @Override
     public boolean isAttributeExist(String attribute){
         return true;
     }
 
-    public void setGender(String gender) {
+    public void setGender(boolean gender) {
         this.gender = gender;
     }
 
@@ -126,10 +137,6 @@ public class Student {
 
     public boolean isEnglishWeakness() {
         return englishWeakness;
-    }
-
-    public String getName() {
-        return name;
     }
 
     @Override
