@@ -40,4 +40,6 @@ public class DataBase {
     //the suggested way is to use 'offsets' as indicators of the next student of each type
     public Student next(String type){ return null;}
     public boolean hasNext(String type) {return true;}
+    //should reset offsets of all types
+    public void resetOffsets(){}
 }
