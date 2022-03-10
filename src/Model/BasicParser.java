@@ -14,27 +14,33 @@ public class BasicParser implements Parser {
             isGender = true;
     }
 
+    private Level stringToLevel(String s){
+        if (s.toLowerCase().equals("a"))
+            return Level.HIGH;
+        if (s.toLowerCase().equals("b"))
+            return Level.MEDIUM;
+        return Level.LOW;
+    }
+
     //leaf parser will receive the person from the basic parser and will add the specific attributes.
-    protected Person createPerson(List<String> values){
-        boolean gender = true;
-        if (isGender)
-            gender = Boolean.parseBoolean(values.get(2));
-        Person person =  prototype.create(Integer.parseInt(values.get(0)), values.get(1), gender);
-        int i = isGender ? 3 : 2, n = attributes.size();
-        for (; i < n; i++){
-            person.setAttribute(attributes.get(i), values.get(i));
-        }
-        return person;
+    protected Student createStudent(List<String> values){
+        Student student = new Student(Integer.parseInt(values.get(0)), values.get(1), Boolean.parseBoolean(values.get(2)),
+                Boolean.parseBoolean(values.get(3)), Boolean.parseBoolean(values.get(4)), stringToLevel(values.get(5)),
+                stringToLevel(values.get(6)));
+        //check about english weakness
+
+        //add friends (after checking their positions).
+
+        return student;
     }
 
     @Override
     public DataBase dataToDB(List<List<String>> data) {
         DataBase db = new DataBase();
-        for (List<String> datum : data) {
-            Person person = createPerson(datum);     //add to DB
-            db.add(person);
-        }
-        return null;
+        for (List<String> datum : data)
+            db.addStudent(createStudent(datum));    //add to data base.
+
+        return db;
     }
 
     @Override
@@ -43,7 +49,6 @@ public class BasicParser implements Parser {
         return null;
     }
     /**
-
     // parse the basic attributes that always should be given
     public void tmp(List<List<String>> students, List<String> keys){
         DataBase db = new DataBase();

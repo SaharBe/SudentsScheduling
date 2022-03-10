@@ -7,23 +7,24 @@ public class Student implements Person{
     private final int id;
     private final String name;
     private boolean gender;
-    private Map<String, String> attributes = new Hashtable<>();
+    /**
+    private List<String> attrsKeys = new ArrayList<>();
+    private Hashtable<String, String> attributes = new Hashtable<>();
+    private Hashtable<String, Integer> attributesID = new Hashtable<>();
+    private Hashtable<String, Boolean> attributesBool = new Hashtable<>();
     //list of relevant keys- maybe should be in the DB as well as types of data
+*/
 
-    ///remove:
-    private  boolean englishLeadership;
-    private  boolean englishWeakness ;
-    private  Level behavior;
-    private  Level grades;
+    private boolean englishLeadership;
+    private boolean englishWeakness;
+    private Level behavior;
+    private Level grades;
     private Student[] friends;
     private final List<Student> beWith = new ArrayList<>();
     private final List<Student> notBeWith = new ArrayList<>();
-    //.
+
     private int classroom;
-    // ?
     private int numOfFriendsWith = 0;
-
-
 
     public Student(int id,String name, boolean gender){
         this.id = id;
@@ -31,10 +32,6 @@ public class Student implements Person{
         this.gender = gender;
     }
 
-    @Override
-    public Student create(int id, String name, boolean gender){
-        return new Student(id, name, gender);
-    }
 
     public Student(int id,String name, boolean gender, boolean englishLeadership,boolean englishWeakness,Level behavior
     ,Level grades){
@@ -53,45 +50,30 @@ public class Student implements Person{
     }
 
 
-    @Override
     public int getID(){
         return id;
     }
 
-    @Override
     public String getName() {
         return name;
     }
 
-    @Override
     public boolean getGender() {
         return gender;
     }
 
-    @Override
-    public void setAttribute(String key, String value){
-        attributes.put(key, value);
-
-    }
-
-    @Override
-    public String getAttribute(String key){
-        return attributes.get(key);
-    }
-
-
-    @Override
-    public boolean isAttributeExist(String attribute){
-        return true;
+    public String generateKey(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(gender).append(englishLeadership).append(englishWeakness).append(behavior).append(grades);
+        return sb.toString();
     }
 
     public void setGender(boolean gender) {
         this.gender = gender;
     }
 
-    public void setFriends( Student[] friends){
+    public void setFriends(Student[] friends){
         this.friends = friends;
-
     }
 
 
