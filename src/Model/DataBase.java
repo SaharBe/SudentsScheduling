@@ -26,7 +26,7 @@ public class DataBase {
         typesList.get(key).add(student.getID());
     }
     // owning all the Students and do operations on them (iterating for now)
-    public Student getStuden(int id){ return null; }
+    public Student getStudent(int id){ return null; }
     public int amountsOfTypes(String type){return 1;}
     public String[] getTypes(){ return null;}
     // need to implement iterators
