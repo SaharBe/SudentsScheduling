@@ -38,7 +38,7 @@ public class BasicParser implements Parser {
     public DataBase dataToDB(List<List<String>> data) {
         DataBase db = new DataBase();
         for (List<String> datum : data)
-            db.addStudent(createStudent(datum));    //add to data base.
+            db.AddStudent(createStudent(datum));    //add to data base.
 
         return db;
     }
