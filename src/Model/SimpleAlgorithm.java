@@ -12,18 +12,21 @@ public class SimpleAlgorithm {
     }
 
     public void PutStudentsInClasses(int numOfClasses){
-        db.ResetOffsets();
+        TypeIterator typeIterator = db.typeIterator();
         classes.clear();
         for (int i = 0; i < numOfClasses; i++)
             classes.set(i, new Class(i, db.amountsOfTypes(null)/numOfClasses -  1,
                     db.amountsOfTypes(null)/numOfClasses +  1, false, false));
         Set<String> types = db.GetTypes();
-        int classIterator = 0, n = classes.size();
+        int classIndex = 0, n = classes.size();
         for (String type : types) {
-            while(db.HasNext(type)){
-                classes.get(classIterator).addStudent(db.Next(type));
-                classIterator = (classIterator + 1) % n;
+            while(typeIterator.hasNext(type)){
+                classes.get(classIndex).addStudent(db.GetStudent(typeIterator.next(type)));
+                classIndex = (classIndex + 1) % n;
             }
+        }
+        for (Class c : classes) {
+            db.AddClass(c);
         }
     }
     //need to add uristics for another algorithms and for making friends be together at the same class.

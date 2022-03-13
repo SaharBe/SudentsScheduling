@@ -12,6 +12,7 @@ import java.util.List;
 public class CsvMediator implements DataMediator {
     private final String COMMA_DELIMITER = ",";
     private String[] headers = null;
+    private String[] types = null;
 
     // method 1- receive data at csv format and transform it into list of lists
     public List<List<String>> ReceiveInput(String file_address) throws IOException {
@@ -21,6 +22,8 @@ public class CsvMediator implements DataMediator {
             // learn headers
             line = br.readLine();
             headers = line.split(COMMA_DELIMITER);
+            line = br.readLine();
+            types = line.split(COMMA_DELIMITER);
             // transform lines into students tokens
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
@@ -64,6 +67,7 @@ public class CsvMediator implements DataMediator {
         }
         return address;
     }
+    public String[] GetTypes() { return types; }
     public String[] GetHeaders(){
         return headers;
     }

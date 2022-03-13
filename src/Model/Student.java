@@ -19,19 +19,21 @@ public class Student implements Person{
     private boolean englishWeakness;
     private Level behavior;
     private Level grades;
+    // convert to Integer
     private Student[] friends;
+    // from list to unique
     private final List<Student> beWith = new ArrayList<>();
     private final List<Student> notBeWith = new ArrayList<>();
 
     private int classroom;
     private int numOfFriendsWith = 0;
-
+/**
     public Student(int id,String name, boolean gender){
         this.id = id;
         this.name = name;
         this.gender = gender;
     }
-
+*/
 
     public Student(int id,String name, boolean gender, boolean englishLeadership,boolean englishWeakness,Level behavior
     ,Level grades){

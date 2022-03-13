@@ -1,12 +1,13 @@
 package Model;
 import java.util.*;
 
-public class Class {
+public class Class implements Iterable<Student> {
 
     private final int id;
     private final int minStudentsNum;
     private final int maxStudentsNum;
-    private List<Student> students  = new LinkedList<>();
+    private List<Student> students  = new ArrayList<>();
+    private int offset = 0;
     private final boolean isForEnglishLeadershipStudents;
     private final boolean isForEnglishWeaknessStudents;
 
@@ -130,5 +131,10 @@ public class Class {
 
     public int getGirlsCounter() {
         return girlsCounter;
+    }
+
+    @Override
+    public Iterator<Student> iterator() {
+        return students.iterator();
     }
 }

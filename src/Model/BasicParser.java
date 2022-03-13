@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class BasicParser implements Parser {
@@ -27,10 +29,9 @@ public class BasicParser implements Parser {
         Student student = new Student(Integer.parseInt(values.get(0)), values.get(1), Boolean.parseBoolean(values.get(2)),
                 Boolean.parseBoolean(values.get(3)), Boolean.parseBoolean(values.get(4)), stringToLevel(values.get(5)),
                 stringToLevel(values.get(6)));
-        //check about english weakness
-
+/**
         //add friends (after checking their positions).
-
+*/
         return student;
     }
 
@@ -46,7 +47,36 @@ public class BasicParser implements Parser {
     @Override
     public List<List<String>> DbToData(DataBase db) {
         //convert from the DB to the data
-        return null;
+        int k, i = 1, n = db.GetClassCount();
+        Class c;
+        List<List<String>> output = new ArrayList<>();
+        Iterator<Class> iterator = db.iterator();
+        while (iterator.hasNext()){
+            String s = "Class " + i + ":";
+            output.add(new ArrayList<>(){{add(s);}});
+            c = iterator.next();
+            Iterator<Student> inClassIterator = c.iterator();
+            while (inClassIterator.hasNext()){
+                Student student = inClassIterator.next();
+                ArrayList<String> studentS = new ArrayList<String>();
+                //add all parameters/
+                studentS.add(String.valueOf(student.getID()));
+                studentS.add(student.getName());
+                studentS.add(String.valueOf(student.getGender()));
+                studentS.add(String.valueOf(student.isEnglishLeadership()));
+                studentS.add(String.valueOf(student.isEnglishWeakness()));
+                studentS.add(String.valueOf(student.getBehavior()));
+                studentS.add(String.valueOf(student.getGrades()));
+                studentS.add(String.valueOf(student.getFriends()[0]));
+                studentS.add(String.valueOf(student.getFriends()[1]));
+                studentS.add(String.valueOf(student.getFriends()[2]));
+                studentS.add(String.valueOf(student.getBeWith().get(0)));
+                studentS.add(String.valueOf(student.getNotBeWith().get(0)));
+                output.add(studentS);
+            }
+
+        }
+        return output;
     }
     /**
     // parse the basic attributes that always should be given
