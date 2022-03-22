@@ -15,5 +15,14 @@ public class TheModel {
         dataBase = parser.dataToDB(input);
     }
 
+
+    public void selectAlgorithm(int pick){
+
+    }
+
+    public List<List<String>> Activate(){
+        //activate the algorithm
+        return parser.DbToData(dataBase);
+    }
     // method-> activate algorithm-> return result
 }
