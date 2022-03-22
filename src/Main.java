@@ -17,7 +17,7 @@ public class Main {
             return;
         }
 
-
+/**
         Student alis = new Student(8,"alis","f",false,false,Level.LOW, Level.MEDIUM);
 
         Student bob = new Student(9,"bob","m", false,true,Level.HIGH, Level.MEDIUM);
@@ -116,7 +116,7 @@ public class Main {
         if(gg.size() == 0){
             System.out.println("do: "+gg);
         }
-
+*/
 
 
 

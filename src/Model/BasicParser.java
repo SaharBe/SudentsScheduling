@@ -5,15 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 
 public class BasicParser implements Parser {
-    Person prototype;
     List<String> attributes;
-    boolean isGender = false;
 
-    public BasicParser(Person object, List<String> attrs){
-        prototype = object;
+    public BasicParser(List<String> attrs){
         attributes = attrs;
-        if (attributes.get(2).toLowerCase().equals("gender"))
-            isGender = true;
     }
 
     private Level stringToLevel(String s){
@@ -40,7 +35,6 @@ public class BasicParser implements Parser {
         DataBase db = new DataBase();
         for (List<String> datum : data)
             db.AddStudent(createStudent(datum));    //add to data base.
-
         return db;
     }
 
@@ -78,13 +72,4 @@ public class BasicParser implements Parser {
         }
         return output;
     }
-    /**
-    // parse the basic attributes that always should be given
-    public void tmp(List<List<String>> students, List<String> keys){
-        DataBase db = new DataBase();
-        for (int i = 0; i < students.size(); i++){
-            db.addStudent(createStudent(keys, students.get(i)));
-        }
-    }
-     */
 }

@@ -9,5 +9,6 @@ public interface DataMediator {
     // method 2- receive list of lists and transform it into data in the same format
     String ReturnOutput(List<List<String>> classes) throws IOException;
     // get the headers of the input file
-    String[] GetHeaders();
+    List<String> GetHeaders();
+     List<String> GetTypes();
 }

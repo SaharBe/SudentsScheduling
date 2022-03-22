@@ -27,13 +27,13 @@ public class Student implements Person{
 
     private int classroom;
     private int numOfFriendsWith = 0;
-/**
-    public Student(int id,String name, boolean gender){
-        this.id = id;
-        this.name = name;
-        this.gender = gender;
+
+    public Student(){
+        this.id = 0;
+        this.name = "";
+        this.gender = true;
     }
-*/
+
 
     public Student(int id,String name, boolean gender, boolean englishLeadership,boolean englishWeakness,Level behavior
     ,Level grades){

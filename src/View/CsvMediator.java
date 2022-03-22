@@ -5,70 +5,87 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 
 public class CsvMediator implements DataMediator {
     private final String COMMA_DELIMITER = ",";
-    private String[] headers = null;
-    private String[] types = null;
+    private List<String> headers = null;
+    private List<String> types = null;
 
-    // method 1- receive data at csv format and transform it into list of lists
-    public List<List<String>> ReceiveInput(String file_address) throws IOException {
+
+    private void readHeaders(BufferedReader br) throws IOException{
+        String line;
+        // learn headers
+        line = br.readLine();
+        headers = Arrays.asList(line.split(COMMA_DELIMITER));
+        line = br.readLine();
+        types = Arrays.asList(line.split(COMMA_DELIMITER));
+    }
+
+
+    private List<List<String>> extractStudentsFromCSV(BufferedReader br) throws IOException{
         List<List<String>> students = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(file_address))) {
-            String line;
-            // learn headers
-            line = br.readLine();
-            headers = line.split(COMMA_DELIMITER);
-            line = br.readLine();
-            types = line.split(COMMA_DELIMITER);
-            // transform lines into students tokens
-            while ((line = br.readLine()) != null) {
-                String[] values = line.split(COMMA_DELIMITER);
-                students.add(Arrays.asList(values));
-            }
+        String line;
+        while ((line = br.readLine()) != null) {
+            String[] values = line.split(COMMA_DELIMITER);
+            students.add(Arrays.asList(values));
         }
         return students;
     }
-    // method 2- receive list of lists and transform it into data in the same csv
-    private String convertToCSV(String[] student_data) {
-        if (student_data.length == 0)
+
+    // receive data at csv format and transform it into list of lists
+    @Override
+    public List<List<String>> ReceiveInput(String file_address) throws IOException {
+        try (BufferedReader br = new BufferedReader(new FileReader(file_address))) {
+            readHeaders(br);        // learn headers
+            return extractStudentsFromCSV(br);
+        }
+    }
+
+
+    // receive list of strings and transform it into csv line
+    private String convertToCSV(List<String> student_data) {
+        if (student_data.size() == 0)
             return "";
         StringBuilder sb = new StringBuilder();
-        sb.append(student_data[0]);
-        for (int i = 1; i < student_data.length; i++)
-            sb.append(COMMA_DELIMITER).append(student_data[i]);
-
+        sb.append(student_data.get(0));
+        for (int i = 1; i < student_data.size(); i++)
+            sb.append(COMMA_DELIMITER).append(student_data.get(i));
         sb.append('\n');
         return  sb.toString();
     }
-    // may wanna return the path to the file
-    public String ReturnOutput(List<List<String>> classes) throws IOException {
-        // WHERE THE FILE SHOULD BE LOCATED IN?
+
+
+    private String findNewAddress(){
         String name = ".\\output(";
         String suffix =").csv";
         int i = 0;
         while((Files.exists(Paths.get(name + i + suffix)))){
             i++;
         }
-        String address = name + i + suffix;
+        return name + i + suffix;
+    }
+
+    @Override
+    public String ReturnOutput(List<List<String>> classes) throws IOException {
+        String address = findNewAddress();
         File file = new File(address);
-        // create FileWriter object with file as parameter
         try (PrintWriter writer = new PrintWriter(address)){
             writer.write(convertToCSV(headers));
             for (List<String> list:classes) {
-                String line = convertToCSV(list.toArray(new String[0]));
-                if (line == null)
-                        return null;        //IS THERE A VALID CASE FOR RETURNING NULL?
+                String line = convertToCSV(list);
                 writer.write(line);
             }
         }
         return address;
     }
-    public String[] GetTypes() { return types; }
-    public String[] GetHeaders(){
+
+    @Override
+    public List<String> GetTypes() { return types; }
+
+    @Override
+    public List<String> GetHeaders(){
         return headers;
     }
 }
