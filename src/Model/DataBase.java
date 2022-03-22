@@ -10,7 +10,8 @@ public class DataBase implements Iterable<Class>{
     private Hashtable<String, Integer> typesCount = new Hashtable<>();
     private Hashtable<String, List<Integer>> typesList = new Hashtable<>();
     private Hashtable<String, Integer> offsets = new Hashtable<>();
-    private List<Class> classes = new ArrayList<>();
+    private List<Class> classes = new LinkedList<>();
+    private List<Student> students = new LinkedList<>();
     private int classOffset = 0;
 
 
@@ -40,6 +41,8 @@ public class DataBase implements Iterable<Class>{
         }
         typesCount.put(key, typesCount.get(key) + 1);
         typesList.get(key).add(student.getID());
+
+        students.add(student);
     }
     // get student by id
     public Student GetStudent(int id){ return studentsById.get(id); }
@@ -65,5 +68,13 @@ public class DataBase implements Iterable<Class>{
     @Override
     public Iterator<Class> iterator() {
         return classes.iterator();
+    }
+
+    public List<Student> getStudents(){
+        return this.students;
+    }
+
+    public List<Class> getClasses(){
+        return this.classes;
     }
 }

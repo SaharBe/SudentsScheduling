@@ -20,12 +20,21 @@ public class GreedyAlgorithmForFriends extends OptimizationAlgorithm {
 
     public GreedyAlgorithmForFriends(DataBase db){
         super(db);
+        this.students = db.getStudents();
+        this.classes = db.getClasses();
 
+    }
+    public void runAlgo(){
+        mainIterate();
+        enterLeftStudents();
     }
 
     public  void activate(){
-        mainIterate();
-        enterLeftStudents();
+        runAlgo();
+
+        for(Class c: classes){
+            System.out.println(c.getId() + " "+ c.getStudents());
+        }
     }
 
     public int getFriendsNum(Student s){
@@ -60,16 +69,6 @@ public class GreedyAlgorithmForFriends extends OptimizationAlgorithm {
         reduceStudentsWithoutClassCounter();
     }
 
-    public Class getClassFromID(int id){
-        for(Class c: classes){
-            if(c.getId() == id){
-                return c;
-            }
-        }
-        return null;
-    }
-
-
 
     public void mainIterate(){
         List<Student> studentsWithoutClasses = studentsWithoutClasses();
@@ -80,13 +79,13 @@ public class GreedyAlgorithmForFriends extends OptimizationAlgorithm {
             for(Student s: studentsWithoutClasses){
                 if(s.getClassroom() == 0){
                     int studentSum;
-                    if(s.getNotBeWith().size() > 0){
+                    if(s.getNotBeWith().get(0) != null){
                         if(isThereEnemiesInList(s, c.getStudents()) ){
                             break;
                         }
 
                     }
-                    if(s.getBeWith().size() > 0){
+                    if(s.getBeWith().get(0) != null ){
                         for(Student mustBeWith: s.getBeWith()){
                             if(mustBeWith.getClassroom() != 0){
                                 Class mustBeClass = getClassFromID(mustBeWith.getClassroom());

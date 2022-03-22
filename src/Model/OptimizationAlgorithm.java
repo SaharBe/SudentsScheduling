@@ -11,8 +11,9 @@ public abstract class OptimizationAlgorithm {
     protected int studentsWithoutClassCounter;
     protected DataBase db;
 
-    public OptimizationAlgorithm(DataBase dataBase){
-        db = dataBase;
+    public OptimizationAlgorithm(DataBase db){
+        this.classes = db.getClasses();
+        this.students = db.getStudents();
     }
     public OptimizationAlgorithm(List<Student> students, List<Class> classes){
         this.students = students;
@@ -39,6 +40,15 @@ public abstract class OptimizationAlgorithm {
       //  System.out.println(notFullClasses);
         return notFullClasses;
 
+    }
+
+    protected Class getClassFromID(int id){
+        for(Class c: classes){
+            if(c.getId() == id){
+                return c;
+            }
+        }
+        return null;
     }
 
     protected final List<Student> studentsWithoutClasses(){
@@ -99,9 +109,10 @@ public abstract class OptimizationAlgorithm {
 
                 for(Student friend: s.getFriends()){
                     if(friend != null){
-                        Class c = classes.get(friend.getClassroom());
-                        if( c.getStudents().size() <  c.getMaxStudentsNum()){
-                            updateClassStudentsData(c,s);
+
+                        Class cla = getClassFromID(friend.getClassroom());
+                        if( cla.getStudents().size() <  cla.getMaxStudentsNum()){
+                            updateClassStudentsData(cla,s);
                             reduceStudentsWithoutClassCounter();
                             break;
                         }
@@ -125,7 +136,7 @@ public abstract class OptimizationAlgorithm {
 
     protected void updateClassStudentsData(Class c, Student s){
 
-        if(Objects.equals(s.getGender(), "m")){
+        if(Objects.equals(s.getGender(), true)){
             // boysCounter++;
             c.BoysCounterPlusOne();
 

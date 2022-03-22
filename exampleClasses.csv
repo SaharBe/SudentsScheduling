@@ -1,0 +1,5 @@
+id,minStudentsNum,maxStudentsNum,isForEnglishLeadershipStudents,isForEnglishWeaknessStudents
+int,int,bool,bool
+1,5,10,TRUE,FALSE
+2,3,8,FALSE,FALSE
+3,5,10,FALSE,TRUE

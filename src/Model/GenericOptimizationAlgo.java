@@ -11,6 +11,8 @@ public class  GenericOptimizationAlgo extends OptimizationAlgorithm {
 
     public GenericOptimizationAlgo(DataBase db){
         super(db);
+        this.students = db.getStudents();
+        this.classes = db.getClasses();
     }
     public GenericOptimizationAlgo(DataBase db,List<Student> students, List<Class> classes ){
         super(students,  classes);
@@ -147,8 +149,8 @@ public class  GenericOptimizationAlgo extends OptimizationAlgorithm {
     public boolean averageConditions(Student s, Class c,HashMap<String, Integer> data){
 
         /** check if attribute exist before accessing it */
-        return (((Objects.equals(s.getGender(), "m") && c.getBoysCounter() < data.get("Boys")) ||
-                (Objects.equals(s.getGender(), "f") && c.getGirlsCounter() < data.get("Girls"))) &&
+        return (((Objects.equals(s.getGender(), true) && c.getBoysCounter() < data.get("Boys")) ||
+                (Objects.equals(s.getGender(), false) && c.getGirlsCounter() < data.get("Girls"))) &&
                 ((Objects.equals(s.getBehavior(), Level.HIGH) && c.getaBehaviorCounter() < data.get("Behavior-HIGH")) ||
                         (Objects.equals(s.getBehavior(), Level.MEDIUM) && c.getbBehaviorCounter() < data.get("Behavior-MEDIUM")) ||
                         (Objects.equals(s.getBehavior(), Level.LOW) && c.getcBehaviorCounter() < data.get("Behavior-LOW")))) &&
@@ -307,7 +309,14 @@ public class  GenericOptimizationAlgo extends OptimizationAlgorithm {
 
     public void activate(){
         runAlgo();
+
+        for(Class c: classes){
+            System.out.println(c.getId() + " "+ c.getStudents());
+        }
+
     }
+
+
 
 }
 

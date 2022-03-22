@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class TheViewCmd implements TheView {
     DataMediator dm;
     Scanner sc;
-    String path = "";
+   // String path = "";
 
     public TheViewCmd(){
         dm = new CsvMediator();
@@ -20,13 +20,13 @@ public class TheViewCmd implements TheView {
 
     // communicate with the user through the cmd
     @Override
-    public List<List<String>> getData(){
+    public List<List<String>> getData(String path){
         List<List<String>> data = new ArrayList<>();
         System.out.println("---Welcome to the student scheduler---\n");
         System.out.println("Please enter the path to the students csv file:");
 
         //path = sc.nextLine();
-        path = ".\\exampleStudents.csv";
+        //path = ".\\exampleStudents.csv";
         try{
             data = dm.ReceiveInput(path);
         } catch (IOException e){
@@ -36,6 +36,8 @@ public class TheViewCmd implements TheView {
                 System.out.println("Error- empty input.");
         return data;
     }
+
+
 
 
     @Override

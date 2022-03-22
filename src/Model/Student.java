@@ -27,6 +27,7 @@ public class Student implements Person{
 
     private int classroom;
     private int numOfFriendsWith = 0;
+    private List<String> originalStudentData;
 
     public Student(){
         this.id = 0;
@@ -36,19 +37,19 @@ public class Student implements Person{
 
 
     public Student(int id,String name, boolean gender, boolean englishLeadership,boolean englishWeakness,Level behavior
-    ,Level grades){
+    ,Level grades, List<String> originalStudentData){
         this.id = id;
         this.name = name;
         this.gender = gender;
 
-       //remove:
+
         this.englishLeadership = englishLeadership;
         this.englishWeakness = englishWeakness;
         this.behavior = behavior;
         this.grades = grades;
-//        this.friends = friends;
-//        this.beWith = beWith;
-//        this.notBeWith = notBeWith;
+
+        this.originalStudentData = originalStudentData;
+
     }
 
 
@@ -132,6 +133,11 @@ public class Student implements Person{
 
     public boolean isEnglishWeakness() {
         return englishWeakness;
+    }
+
+
+    public List<String> getOriginalStudentData(){
+        return this.originalStudentData;
     }
 
     @Override

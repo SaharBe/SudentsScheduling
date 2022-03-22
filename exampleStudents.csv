@@ -1,4 +1,4 @@
-id,name,gender,englishLeadership,wnglish weakness,behavior,grades,friend 1,friend 2,friend 3,beWith,notBeWith
+id,name,gender,englishLeadership,english weakness,behavior,grades,friend 1,friend 2,friend 3,beWith,notBeWith
 int,string,bool,bool,bool,level,level,int,int,int,int,int
 1,Avi cohen,TRUE,FALSE,TRUE,A,A,2,3,4,4,2
 2,BENNY,TRUE,FALSE,FALSE,B,C,1,5,4,1,7

@@ -15,10 +15,16 @@ public class TheController {
     Parser parser;
 
     public void StartProgram(){
-        view = new TheViewCmd();
-        List<List<String>> data = view.getData();
+        String stdPath = ".\\exampleStudents.csv";
+        String clsPath = ".\\exampleClasses.csv";
 
-        model = new TheModel(data, view.GetHeaders());
+        view = new TheViewCmd();
+        List<List<String>> data = view.getData(stdPath);
+        List<String> dataHeaders = view.GetHeaders();
+        List<List<String>> classesDate = view.getData(clsPath);
+        List<String> classesHeaders = view.GetHeaders();
+
+        model = new TheModel(data,classesDate, dataHeaders, classesHeaders);
 
         List<String> algos = model.algorithemsOptions();
         int pick = view.algorithmPick(algos);
