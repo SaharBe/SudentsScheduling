@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -23,69 +24,113 @@ public class GreedyAlgorithmForFriends extends OptimizationAlgorithm {
     }
 
     public  void activate(){
-        System.out.println("in process...");
+        mainIterate();
+        enterLeftStudents();
+    }
+
+    public int getFriendsNum(Student s){
+        int friendsCounter = 0;
+        for(Student friend: s.getFriends()){
+            if(friend != null){
+                friendsCounter++;
+
+            }
+        }
+        return friendsCounter;
+    }
+
+    public boolean isThereEnemiesInList(Student s, List<Student> list){
+        List<Student> enemies = s.getNotBeWith();
+        if(enemies.size() == 0){
+            return false;
+        }
+        for(Student enemy: enemies){
+            for(Student student: list){
+                    if(enemy.getID() == student.getID()){
+                        return true;
+                    }
+            }
+        }
+        return false;
+
+    }
+
+    public void addStudentToClass(Class c, Student s){
+        updateClassStudentsData( c,  s);
+        reduceStudentsWithoutClassCounter();
+    }
+
+    public Class getClassFromID(int id){
+        for(Class c: classes){
+            if(c.getId() == id){
+                return c;
+            }
+        }
+        return null;
     }
 
 
 
+    public void mainIterate(){
+        List<Student> studentsWithoutClasses = studentsWithoutClasses();
+        List<Class> classNoFullMinimum  = findClassesNotFullMinimum();
+
+        for(Class c: classNoFullMinimum){
+//            List<Student> waitingList = new LinkedList<>();
+            for(Student s: studentsWithoutClasses){
+                if(s.getClassroom() == 0){
+                    int studentSum;
+                    if(s.getNotBeWith().size() > 0){
+                        if(isThereEnemiesInList(s, c.getStudents()) ){
+                            break;
+                        }
+
+                    }
+                    if(s.getBeWith().size() > 0){
+                        for(Student mustBeWith: s.getBeWith()){
+                            if(mustBeWith.getClassroom() != 0){
+                                Class mustBeClass = getClassFromID(mustBeWith.getClassroom());
+                                updateClassStudentsData(mustBeClass, s);
+                                reduceStudentsWithoutClassCounter();
+                                break;
+                            }
+                            if(isThereEnemiesInList( mustBeWith, c.getStudents())){
+                                break;
+                            }
+                        }
+
+                    }
 
 
+                    if(getFriendsNum(s) > 0){
+                        studentSum = s.getBeWith().size() + 2;
+                    }else{
+                        studentSum = s.getBeWith().size() +1;
+                    }
+                    if((studentSum + c.getStudents().size()) < c.getMinStudentsNum()){
+                        for(int i=0; i< getFriendsNum(s); i++){
+                            Student friend = s.getFriends()[i];
+                            if(!(isThereEnemiesInList( friend, c.getStudents()) ) &&
+                                    friend.getClassroom() == 0){
+                                //add to waiting list all the gang
+                                addStudentToClass(c, s);
+                                addStudentToClass(c, friend);
+                                for(Student beWith: s.getBeWith()){
+                                    addStudentToClass(c, beWith);
+                                }
+                                break;
 
 
+                            }
+                        }
 
+                    }
 
-//    public void func(){
-//
-//        while( (findClassesNotFullMinimum().size() > 0 ) && (studentsWithoutClasses().size() >0)) {
-//            for (Class c : classes) {
-//
-//                for(Student s: studentsWithoutClasses()){
-//                    int counter = 0;
-//                    List<Student> waitingList = new LinkedList<>();
-//
-//                    if((c.getStudents().size() + waitingList.size() + s.getBeWith().size() + 1) < c.getMaxStudentsNum()){
-//                        if(s.getNotBeWith().size() > 0){
-//                            List<Student> notBeWith = s.getNotBeWith();
-//                            for(Student student: notBeWith){
-//                                if(student.getClassroom() == c.getId() || waitingList.contains(student) ){
-//                                    break;
-//                                }
-//                            }
-//                            //add students, his "must be", and his one friend to the waiting list
-//                            waitingList.add(s);
-//                            if(s.getBeWith().size() > 0){
-//                                List<Student> beWith = s.getBeWith();
-//                                for(Student b : beWith){
-//                                    waitingList.add(b);
-//                                }
-//                            }
-//
-//
-//                        }
-//                    }
-//
-//                    /*   void recursFunc(s):
-//                       if there is a place to enter the "be with" and at list one friend and there is no "not be":
-//                            enter s to the queue
-//                       if can not enter the minimum from his"gang" (the must be and at list one friend)-
-//                            break;
-//
-//               if there is no "not be with":
-//                    until his "gang" exist:
-//                        enter him and his friends and be with to a queue:
-//                            check if at list one friend can enter also to the class,
-//                    * */
-//
-//
-//
-//                }
-//
-//
-//            }
-//        }
-//
-//
-//    }
+                }
 
+            }
+        }
+
+    }
 
 }

@@ -68,13 +68,34 @@ public class Main {
         h.setFriends(hArr);
         k.setFriends(kArr);
 
+        List<Student> notBeWithOne = new LinkedList<>();
+        notBeWithOne.add(davis);
+        notBeWithOne.add(emma);
+
+        List<Student> notBeWithTwo = new LinkedList<>();
+        notBeWithTwo.add(f);
+
+        List<Student> beWithOne = new LinkedList<>();
+        beWithOne.add(bob);
+
+        List<Student> beWithTwo = new LinkedList<>();
+        beWithOne.add(mia);
+
+
+
+        alis.setBeWith(beWithOne);
+        alis.setNotBeWith(notBeWithTwo);
+
+        h.setNotBeWith(notBeWithOne);
+        h.setBeWith(beWithTwo);
 
 
 
 
-        Class one = new Class(1,3,5, true, false);
-        Class two = new Class(2,3,5, true, false);
-        Class three =  new Class(3,3,5, false, true);
+
+        Class one = new Class(1,4,5, true, false);
+        Class two = new Class(2,4,5, true, false);
+        Class three =  new Class(3,4,5, false, true);
 
         List<Student> students = new ArrayList<>();
         students.add(alis);
@@ -104,16 +125,15 @@ public class Main {
 
 //       GenericOptimizationAlgo opt = new GenericOptimizationAlgo(db ,students, classes);
 ////
-//       opt.runAlgo();
+//      opt.activate();
+        GreedyAlgorithmForFriends opt = new GreedyAlgorithmForFriends(students, classes);
+        opt.activate();
+
+       for(Class c: classes){
+           System.out.println(c.getId() + " "+ c.getStudents());
+       }
 
 
-
-//       for(Class c: classes){
-//           System.out.println(c.getId() + " "+ c.getStudents());
-//       }
-
-       GreedyAlgorithmForFriends opt = new GreedyAlgorithmForFriends(students, classes);
-       opt.activate();
 
 
 

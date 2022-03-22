@@ -64,6 +64,17 @@ public class Student implements Person{
         return gender;
     }
 
+    public void setBeWith(List<Student> list){
+        this.beWith.addAll(list);
+    }
+
+
+    public void setNotBeWith(List<Student> list){
+        this.notBeWith.addAll(list);
+    }
+
+
+
     public String generateKey(){
         StringBuilder sb = new StringBuilder();
         sb.append(gender).append(englishLeadership).append(englishWeakness).append(behavior).append(grades);

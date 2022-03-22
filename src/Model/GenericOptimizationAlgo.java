@@ -169,7 +169,7 @@ public class  GenericOptimizationAlgo extends OptimizationAlgorithm {
         int numOfLeaderStudents;
         int numOfWeakStudents;
 
-        for (Class c : db) {
+        for (Class c : classes) {
             if (c.isForEnglishLeadershipStudents()) {
                 leadershipClasses.add(c);
             }
@@ -297,56 +297,6 @@ public class  GenericOptimizationAlgo extends OptimizationAlgorithm {
     }
 
 
-    /*check if there is students not in the minimum,
-    or friend in not full class and enter the left student there  */
-    public void enterLeftStudents(){
-        List<Class> noMinimumClasses  = findClassesNotFullMinimum();
-        List<Class> noMaximumClasses = findClassesNotFullMaximum();
-        List<Student> studentsWithoutClasses = studentsWithoutClasses();
-        int i = 0;
-
-        if(!(noMinimumClasses.isEmpty())){
-            for(Class c: noMaximumClasses){
-
-                while (c.getStudents().size() <c.getMinStudentsNum()){
-
-                    Student s = studentsWithoutClasses.get(i);
-
-                    if(s.getClassroom() == 0){
-                            updateClassStudentsData(c,s);
-                            reduceStudentsWithoutClassCounter();
-                    }
-                    i++;
-                }
-            }
-        }
-        for(Student s: studentsWithoutClasses){
-            if (s.getClassroom() == 0){
-
-                for(Student friend: s.getFriends()){
-                    if(friend != null){
-                        Class c = classes.get(friend.getClassroom());
-                        if( c.getStudents().size() <  c.getMaxStudentsNum()){
-                            updateClassStudentsData(c,s);
-                            reduceStudentsWithoutClassCounter();
-                            break;
-                        }
-                    }
-
-                }
-            }
-            if(s.getClassroom() == 0){
-                for(Class c: classes){
-                    if(c.getStudents().size() < c.getMaxStudentsNum()){
-                        updateClassStudentsData(c,s);
-                        reduceStudentsWithoutClassCounter();
-                        break;
-                    }
-                }
-            }
-        }
-
-    }
 
     public void runAlgo(){
         firstEntry();
