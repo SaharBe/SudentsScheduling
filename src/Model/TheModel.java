@@ -27,7 +27,7 @@ public class TheModel {
         if (pick == 1)
             optimizationAlgorithem = new GenericOptimizationAlgo(dataBase);
         if (pick == 2)
-            optimizationAlgorithem = new greedyAlgorithmForFriends(dataBase);
+            optimizationAlgorithem = new GreedyAlgorithmForFriends(dataBase);
     }
 
     public List<List<String>> Activate(){

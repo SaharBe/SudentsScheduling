@@ -17,7 +17,7 @@ public class Main {
 //            return;
 //        }
 
-/**
+
         Student alis = new Student(8,"alis",false,false,false,Level.LOW, Level.MEDIUM);
 
         Student bob = new Student(9,"bob",true, false,true,Level.HIGH, Level.MEDIUM);
@@ -102,20 +102,18 @@ public class Main {
 
 
 
-       GenericOptimizationAlgo opt = new GenericOptimizationAlgo(db ,students, classes);
-//
-       opt.runAlgo();
+//       GenericOptimizationAlgo opt = new GenericOptimizationAlgo(db ,students, classes);
+////
+//       opt.runAlgo();
 
-        if(gg.size() == 0){
-            System.out.println("do: "+gg);
-        }
-*/
+
 
 //       for(Class c: classes){
 //           System.out.println(c.getId() + " "+ c.getStudents());
 //       }
 
-      //  GreedyAlgorithmForFriends opt = new GreedyAlgorithmForFriends(students, classes);
+       GreedyAlgorithmForFriends opt = new GreedyAlgorithmForFriends(students, classes);
+       opt.activate();
 
 
 

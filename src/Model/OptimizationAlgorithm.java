@@ -21,13 +21,13 @@ public abstract class OptimizationAlgorithm {
 
     }
 
-    public abstract void activate();
+    protected abstract void activate();
 
-    public void reduceStudentsWithoutClassCounter(){
+    protected void reduceStudentsWithoutClassCounter(){
         studentsWithoutClassCounter--;
     }
 
-    public final  List<Class> findClassesNotFullMinimum(){
+    protected final  List<Class> findClassesNotFullMinimum(){
         List<Class> notFullClasses = new ArrayList<>();
 
         for (Class c:classes) {
@@ -41,7 +41,7 @@ public abstract class OptimizationAlgorithm {
 
     }
 
-    public final List<Student> studentsWithoutClasses(){
+    protected final List<Student> studentsWithoutClasses(){
 
         List<Student> studentsList = new ArrayList<>();
 
@@ -57,7 +57,7 @@ public abstract class OptimizationAlgorithm {
 
     }
 
-    public final List<Class> findClassesNotFullMaximum(){
+    protected final List<Class> findClassesNotFullMaximum(){
         List<Class> notFullClasses = new ArrayList<>();
 
         for (Class c:classes) {
@@ -71,7 +71,7 @@ public abstract class OptimizationAlgorithm {
 
     }
 
-    public void updateClassStudentsData(Class c, Student s){
+    protected void updateClassStudentsData(Class c, Student s){
 
         if(Objects.equals(s.getGender(), "m")){
             // boysCounter++;
@@ -107,7 +107,6 @@ public abstract class OptimizationAlgorithm {
         c.addStudent(s);
 
     }
-
 
 
 }
