@@ -355,5 +355,9 @@ public class  GenericOptimizationAlgo extends OptimizationAlgorithm {
         enterLeftStudents();
     }
 
+    public void activate(){
+        runAlgo();
+    }
+
 }
 

@@ -42,8 +42,8 @@ import java.util.Queue;
 
 public class greedyAlgorithmForFriends extends OptimizationAlgorithm {
 
-    private final List<Student> students;
-    private final List<Class> classes;
+    private  List<Student> students;
+    private  List<Class> classes;
     private int studentsWithoutClassCounter;
 
     public greedyAlgorithmForFriends(List<Student> students, List<Class> classes){
@@ -52,6 +52,15 @@ public class greedyAlgorithmForFriends extends OptimizationAlgorithm {
         this.classes = classes;
         this.studentsWithoutClassCounter = students.size();
 
+    }
+
+    public greedyAlgorithmForFriends(DataBase db){
+        super(db);
+
+    }
+
+    public  void activate(){
+        System.out.println("in process...");
     }
 
 

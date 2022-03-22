@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class OptimizationAlgorithm {
+public abstract class OptimizationAlgorithm {
 
     protected List<Student> students;
     protected List<Class> classes;
@@ -20,6 +20,8 @@ public class OptimizationAlgorithm {
         this.studentsWithoutClassCounter = students.size();
 
     }
+
+    public abstract void activate();
 
     public void reduceStudentsWithoutClassCounter(){
         studentsWithoutClassCounter--;
