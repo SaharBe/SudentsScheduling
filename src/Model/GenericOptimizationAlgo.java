@@ -3,14 +3,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.*;
 
-public class GenericOptimizationAlgo extends OptimizationAlgorithm {
+public class  GenericOptimizationAlgo extends OptimizationAlgorithm {
 
     private final List<Student> students;
     private final List<Class> classes;
     private int studentsWithoutClassCounter;
+    DataBase db;
 
 
-    public GenericOptimizationAlgo(List<Student> students, List<Class> classes){
+    public GenericOptimizationAlgo(DataBase db,List<Student> students, List<Class> classes ){
         super(students,  classes);
         this.students = students;
         this.classes = classes;
@@ -18,9 +19,7 @@ public class GenericOptimizationAlgo extends OptimizationAlgorithm {
 
     }
 
-    public void reduceStudentsWithoutClassCounter(){
-        studentsWithoutClassCounter--;
-    }
+
 
     public int getNumOfStudents(){
         return students.size();
@@ -142,42 +141,7 @@ public class GenericOptimizationAlgo extends OptimizationAlgorithm {
 
     }
 
-    public void updateClassStudentsData(Class c, Student s){
 
-        if(Objects.equals(s.getGender(), "m")){
-            // boysCounter++;
-            c.BoysCounterPlusOne();
-
-        }else{
-            // girlsCounter++;
-            c.girlsCounterPlusOne();
-        }
-        if(Objects.equals(s.getBehavior(), Level.HIGH)){
-            //aBehaviorCounter++;
-            c.aBehaviorCounterPlusOne();
-
-        }else if(Objects.equals(s.getBehavior(), Level.MEDIUM)){
-            //bBehaviorCounter++;
-            c. bBehaviorCounterPlusOne();
-
-        }else{
-            //cBehaviorCounter++;
-            c.cBehaviorCounterPlusOne();
-        }
-        if(Objects.equals(s.getGrades(), Level.HIGH)){
-            //aGradesCounter++;
-            c.aGradesCounterPlusOne();
-        }else if(Objects.equals(s.getGrades(), Level.MEDIUM)){
-            //bGradesCounter++;
-            c.bGradesCounterPlusOne();
-        }else{
-            //cGradesCounter++;
-            c.cGradesCounterPlusOne();
-        }
-
-        c.addStudent(s);
-
-    }
 
     public boolean averageConditions(Student s, Class c,HashMap<String, Integer> data){
 
@@ -204,16 +168,17 @@ public class GenericOptimizationAlgo extends OptimizationAlgorithm {
         int numOfLeaderStudents;
         int numOfWeakStudents;
 
-
-
-        for(Class c: classes){
-            if(c.isForEnglishLeadershipStudents()){
+        for (Class c : db) {
+            if (c.isForEnglishLeadershipStudents()) {
                 leadershipClasses.add(c);
             }
-            if(c.isForEnglishWeaknessStudents()){
+            if (c.isForEnglishWeaknessStudents()) {
                 weaknessClasses.add(c);
             }
+
         }
+
+
 
         for (Student s: students){
             if(s.isEnglishLeadership()){
@@ -240,7 +205,7 @@ public class GenericOptimizationAlgo extends OptimizationAlgorithm {
                 j++;
             }
 
-            System.out.println(c.getStudents());
+            // System.out.println(c.getStudents());
         }
 
         j=0;
@@ -254,7 +219,7 @@ public class GenericOptimizationAlgo extends OptimizationAlgorithm {
                 j++;
             }
 
-            System.out.println(c.getStudents());
+          //  System.out.println(c.getStudents());
         }
 
     }
@@ -323,7 +288,7 @@ public class GenericOptimizationAlgo extends OptimizationAlgorithm {
                 }
             }
 
-            System.out.println("In the Class: "+c.getStudents());
+//            System.out.println("In the Class: "+c.getStudents());
 
         }
 
@@ -331,43 +296,62 @@ public class GenericOptimizationAlgo extends OptimizationAlgorithm {
     }
 
 
-//    public  List<Class> findClassesNotFullMinimum(){
-//        List<Class> notFullClasses = new ArrayList<>();
-//
-//        for (Class c:classes) {
-//            if(c.getStudents().size() <   c.getMinStudentsNum() ){
-//                notFullClasses.add(c);
-//            }
-//
-//        }
-////        System.out.println(notFullClasses);
-//        return notFullClasses;
-//
-//    }
-
-    public List<Class> findFullClasses(){
-        List<Class> FullClasses = new ArrayList<>();
-
-        for (Class c:classes) {
-            if(c.getStudents().size() ==   c.getMaxStudentsNum() ){
-                FullClasses.add(c);
-            }
-
-        }
-        System.out.println(FullClasses);
-        return FullClasses;
-
-    }
-
+    /*check if there is students not in the minimum,
+    or friend in not full class and enter the left student there  */
     public void enterLeftStudents(){
-        /*if all the classes get the minimum and there are classes that not get the maximum:
-                loop over that classes, and for all student without class, check if the can be there
-        *   */
-        //if all the classes get the minimum:
-            //iterate on his friends, if there is a friend in class that doesn't get the maximum - enter him there.
-        //
-        /*if there are classes that not get the minimum, enter the students there*/
+        List<Class> noMinimumClasses  = findClassesNotFullMinimum();
+        List<Class> noMaximumClasses = findClassesNotFullMaximum();
+        List<Student> studentsWithoutClasses = studentsWithoutClasses();
+        int i = 0;
 
+        if(!(noMinimumClasses.isEmpty())){
+            for(Class c: noMaximumClasses){
+
+                while (c.getStudents().size() <c.getMinStudentsNum()){
+
+                    Student s = studentsWithoutClasses.get(i);
+
+                    if(s.getClassroom() == 0){
+                            updateClassStudentsData(c,s);
+                            reduceStudentsWithoutClassCounter();
+                    }
+                    i++;
+                }
+            }
+        }
+        for(Student s: studentsWithoutClasses){
+            if (s.getClassroom() == 0){
+
+                for(Student friend: s.getFriends()){
+                    if(friend != null){
+                        Class c = classes.get(friend.getClassroom());
+                        if( c.getStudents().size() <  c.getMaxStudentsNum()){
+                            updateClassStudentsData(c,s);
+                            reduceStudentsWithoutClassCounter();
+                            break;
+                        }
+                    }
+
+                }
+            }
+            if(s.getClassroom() == 0){
+                for(Class c: classes){
+                    if(c.getStudents().size() < c.getMaxStudentsNum()){
+                        updateClassStudentsData(c,s);
+                        reduceStudentsWithoutClassCounter();
+                        break;
+                    }
+                }
+            }
+        }
+
+    }
+
+    public void runAlgo(){
+        firstEntry();
+        enterFriends();
+        secondEntry();
+        enterLeftStudents();
     }
 
 }
