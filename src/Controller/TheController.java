@@ -16,15 +16,16 @@ public class TheController {
 
     public void StartProgram(){
         view = new TheViewCmd();
-        parser = new BasicParser();
-        // view-> receive input from user
         List<List<String>> data = view.getData();
-        // pass input to parser
 
-        // insert parsed input into database in model
-        // model = new TheModel(algorithm name, list from view);
-        // model-> activate optimization algorithm
-        // reparse input from algorithm
-        // return result to user
+        model = new TheModel(data, view.GetHeaders());
+
+        List<String> algos = model.algorithemsOptions();
+        int pick = view.algorithmPick(algos);
+        model.selectAlgorithm(pick);
+
+        data = model.Activate();
+
+        view.returnOutput(data);
     }
 }

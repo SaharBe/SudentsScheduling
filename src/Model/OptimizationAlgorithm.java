@@ -6,11 +6,14 @@ import java.util.Objects;
 
 public class OptimizationAlgorithm {
 
-    protected final List<Student> students;
-    protected final List<Class> classes;
+    protected List<Student> students;
+    protected List<Class> classes;
     protected int studentsWithoutClassCounter;
+    protected DataBase db;
 
-
+    public OptimizationAlgorithm(DataBase dataBase){
+        db = dataBase;
+    }
     public OptimizationAlgorithm(List<Student> students, List<Class> classes){
         this.students = students;
         this.classes = classes;
@@ -102,5 +105,7 @@ public class OptimizationAlgorithm {
         c.addStudent(s);
 
     }
+
+
 
 }

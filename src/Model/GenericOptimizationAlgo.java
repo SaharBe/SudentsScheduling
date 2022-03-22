@@ -5,12 +5,13 @@ import java.util.*;
 
 public class  GenericOptimizationAlgo extends OptimizationAlgorithm {
 
-    private final List<Student> students;
-    private final List<Class> classes;
+    private List<Student> students;
+    private List<Class> classes;
     private int studentsWithoutClassCounter;
-    DataBase db;
 
-
+    public GenericOptimizationAlgo(DataBase db){
+        super(db);
+    }
     public GenericOptimizationAlgo(DataBase db,List<Student> students, List<Class> classes ){
         super(students,  classes);
         this.students = students;

@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TheModel {
@@ -13,14 +14,24 @@ public class TheModel {
         parser = new BasicParser(attrs);
         // init DB with input
         dataBase = parser.dataToDB(input);
+        optimizationAlgorithem = new GenericOptimizationAlgo(dataBase);
     }
 
-
+    public List<String> algorithemsOptions(){
+        List<String> algos = new ArrayList<>();
+        algos.add("Generic Algorithm- classes more balanced");
+        algos.add("Greedy Algorithm- focus on friends");
+        return null;
+    }
     public void selectAlgorithm(int pick){
-
+        if (pick == 1)
+            optimizationAlgorithem = new GenericOptimizationAlgo(dataBase);
+        if (pick == 2)
+            optimizationAlgorithem = new greedyAlgorithmForFriends(dataBase);
     }
 
     public List<List<String>> Activate(){
+
         //activate the algorithm
         return parser.DbToData(dataBase);
     }
