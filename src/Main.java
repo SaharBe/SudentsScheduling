@@ -8,39 +8,39 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        if(false) {
-            TheController controller = new TheController();
-            controller.StartProgram();
-            CSVMediatorTester csvMediatorTester = new CSVMediatorTester();
-            csvMediatorTester.Test();
-            System.out.println("test" );
-            return;
-        }
+//        if() {
+//            TheController controller = new TheController();
+//            controller.StartProgram();
+//            CSVMediatorTester csvMediatorTester = new CSVMediatorTester();
+//            csvMediatorTester.Test();
+//            System.out.println("test" );
+//            return;
+//        }
 
 /**
-        Student alis = new Student(8,"alis","f",false,false,Level.LOW, Level.MEDIUM);
+        Student alis = new Student(8,"alis",false,false,false,Level.LOW, Level.MEDIUM);
 
-        Student bob = new Student(9,"bob","m", false,true,Level.HIGH, Level.MEDIUM);
+        Student bob = new Student(9,"bob",true, false,true,Level.HIGH, Level.MEDIUM);
 
-        Student coco = new Student(10,"coco","m",true,false,Level.HIGH, Level.LOW);
+        Student coco = new Student(10,"coco",true,true,false,Level.HIGH, Level.LOW);
 
-        Student davis = new Student(11, "davis","m", true,false,Level.LOW, Level.LOW);
+        Student davis = new Student(11, "davis",true, true,false,Level.LOW, Level.LOW);
 
-        Student helena = new Student(12, "helena","f", false,false,Level.MEDIUM, Level.MEDIUM);
+        Student helena = new Student(12, "helena",false, false,false,Level.MEDIUM, Level.MEDIUM);
 
-        Student emma = new Student(13, "emma","f", false,false,Level.MEDIUM, Level.HIGH);
+        Student emma = new Student(13, "emma",false, false,false,Level.MEDIUM, Level.HIGH);
 
-        Student mia = new Student(14, "mia","f", true,false,Level.LOW, Level.HIGH);
+        Student mia = new Student(14, "mia",false, true,false,Level.LOW, Level.HIGH);
 
-        Student zoe = new Student(15, "zoe","f", false,false,Level.HIGH, Level.LOW);
+        Student zoe = new Student(15, "zoe",false, false,false,Level.HIGH, Level.LOW);
 
-        Student f = new Student(16, "f","m", true,false,Level.HIGH, Level.HIGH);
+        Student f = new Student(16, "f",true, true,false,Level.HIGH, Level.HIGH);
 
-        Student g = new Student(17, "g","m", false,false,Level.MEDIUM, Level.MEDIUM);
+        Student g = new Student(17, "g",false, false,false,Level.MEDIUM, Level.MEDIUM);
 
-        Student h = new Student(18, "h","m", false,false,Level.HIGH, Level.MEDIUM);
+        Student h = new Student(18, "h",true, false,false,Level.HIGH, Level.MEDIUM);
 
-        Student k = new Student(19, "k","f", false,false,Level.HIGH, Level.MEDIUM);
+        Student k = new Student(19, "k",false, false,false,Level.HIGH, Level.MEDIUM);
 
         Student[] alisArr ={emma,h,bob};
         Student[] bobArr ={coco,alis,emma};
@@ -69,7 +69,7 @@ public class Main {
         k.setFriends(kArr);
 
 
-        System.out.println("this is me: "+ alis.getClassroom());
+
 
 
         Class one = new Class(1,3,5, true, false);
@@ -96,28 +96,26 @@ public class Main {
         classes.add(two);
         classes.add(three);
 
-        GenericOptimizationAlgo opt = new GenericOptimizationAlgo(students, classes);
+        DataBase db = new DataBase();
+        db.AddClass(one);
 
-        System.out.println(opt.getNumOfGrades());
-        System.out.println(opt.getNumOfBehaviors());
 
-        System.out.println("gg"+classes.size());
-        HashMap<String, Integer> la = opt.averageClassData();
-        System.out.println(la);
 
-        opt.firstEntry();
-        opt.enterFriends();
-        opt.secondEntry();
-        System.out.println(f.getFriends()[2]);
 
-        List<Class> d = opt.findClassesNotFullMinimum();
-        List<Class> gg = opt.findFullClasses();
+       GenericOptimizationAlgo opt = new GenericOptimizationAlgo(db ,students, classes);
+//
+       opt.runAlgo();
 
         if(gg.size() == 0){
             System.out.println("do: "+gg);
         }
 */
 
+//       for(Class c: classes){
+//           System.out.println(c.getId() + " "+ c.getStudents());
+//       }
+
+      //  GreedyAlgorithmForFriends opt = new GreedyAlgorithmForFriends(students, classes);
 
 
 
